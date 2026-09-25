@@ -20,6 +20,7 @@ body {
     background-color: var(--bg-main);
     color: var(--text-dark);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 /* Header */
@@ -699,6 +700,8 @@ body {
 .thumbnail-list {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .thumbnail-list img {
