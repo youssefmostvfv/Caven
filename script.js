@@ -237,10 +237,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.getElementById('cart-subtotal').innerText = subtotal + ' ج.م';
 
-        // Discount Logic (20% off if >= 2 items)
+        // Discount Logic: 20% off on pairs (every 2 items)
         let discount = 0;
-        if (totalQty >= 2) {
-            discount = subtotal * 0.20;
+        let allPrices = [];
+        cart.forEach(item => {
+            for(let i=0; i<item.qty; i++) {
+                allPrices.push(item.price);
+            }
+        });
+        // Calculate discount for every pair
+        let pairs = Math.floor(allPrices.length / 2);
+        if (pairs > 0) {
+            // Apply 20% discount on the items that form pairs
+            for(let i=0; i < pairs * 2; i++) {
+                discount += allPrices[i] * 0.20;
+            }
             document.getElementById('cart-discount-line').style.display = 'flex';
             document.getElementById('cart-discount-amount').innerText = '-' + discount + ' ج.م';
         } else {
@@ -348,7 +359,19 @@ document.addEventListener('DOMContentLoaded', () => {
             let totalQty = cart.reduce((sum, i) => sum + i.qty, 0);
             
             let subtotal = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
-            let totalVal = totalQty >= 2 ? (subtotal * 0.8) : subtotal;
+            
+            // Recalculate discount for checkout
+            let allPrices = [];
+            cart.forEach(item => {
+                for(let i=0; i<item.qty; i++) allPrices.push(item.price);
+            });
+            let pairs = Math.floor(allPrices.length / 2);
+            let discount = 0;
+            for(let i=0; i < pairs * 2; i++) {
+                discount += allPrices[i] * 0.20;
+            }
+            
+            let totalVal = subtotal - discount;
 
             const formData = new FormData();
             formData.append('Product', productString);
