@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Clear old cart to avoid pricing issues with v2
+    if (!localStorage.getItem('caven_cart_v2')) {
+        localStorage.removeItem('caven_cart');
+        localStorage.setItem('caven_cart_v2', 'true');
+    }
+
     // Mobile Menu Toggle
     const menuToggle = document.querySelector('.menu-toggle');
     const closeMenu = document.querySelector('.close-menu');
@@ -136,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span id="cart-subtotal">0 ج.م</span>
                 </div>
                 <div class="summary-line discount-line" id="cart-discount-line" style="display:none;">
-                    <span>خصم (20%):</span>
+                    <span>خصم (عرض القطعتين):</span>
                     <span id="cart-discount-amount">-0 ج.م</span>
                 </div>
                 <div class="summary-line total">
@@ -247,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.getElementById('cart-subtotal').innerText = subtotal + ' ج.م';
 
-        // Discount Logic: 20% off on pairs (every 2 items)
+        // Discount Logic: 50 LE off on pairs (every 2 items = 350 LE)
         let discount = 0;
         let allPrices = [];
         cart.forEach(item => {
@@ -258,10 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Calculate discount for every pair
         let pairs = Math.floor(allPrices.length / 2);
         if (pairs > 0) {
-            // Apply 20% discount on the items that form pairs
-            for(let i=0; i < pairs * 2; i++) {
-                discount += allPrices[i] * 0.20;
-            }
+            discount = pairs * 50; // 50 LE discount per pair
             document.getElementById('cart-discount-line').style.display = 'flex';
             document.getElementById('cart-discount-amount').innerText = '-' + discount + ' ج.م';
         } else {
@@ -306,7 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Get data based on context
             let title = 'كاب';
-            let price = 250;
+            let price = 200;
             let img = 'img/caven-cap-black.webp';
             let qty = 1;
 
@@ -376,10 +379,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 for(let i=0; i<item.qty; i++) allPrices.push(item.price);
             });
             let pairs = Math.floor(allPrices.length / 2);
-            let discount = 0;
-            for(let i=0; i < pairs * 2; i++) {
-                discount += allPrices[i] * 0.20;
-            }
+            let discount = pairs * 50;
             
             let totalVal = subtotal - discount;
 
