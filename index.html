@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAVEN — كافِن | كابات بتكمل إطلالتك</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="header">
+        <div class="logo">CAVEN — كافِن</div>
+        <div class="header-icons">
+            <i class="fas fa-search"></i>
+            <i class="far fa-heart"></i>
+            <i class="fas fa-bars menu-toggle"></i>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <div class="logo">CAVEN — كافِن</div>
+            <i class="fas fa-times close-menu"></i>
+        </div>
+        <nav class="mobile-nav-links">
+            <a href="#" class="active">الرئيسية</a>
+            <a href="products.html">المنتجات</a>
+            <a href="#">من نحن</a>
+            <a href="#">تواصل معنا</a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-image-container">
+            <img src="img/caven-cap-charcoal.webp" alt="كاب رمادي" class="hero-image">
+            <div class="slider-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+        <div class="hero-content">
+            <h1>لمسـة  بتكمّل ستايلك</h1>
+            <p>كابات بتصاميم عصرية ومريحة، مصممة عشان تعكس شخصيتك وتليق على كل لبسك.</p>
+            <button class="btn-primary" onclick="window.location.href='products.html'"><i class="fas fa-arrow-left" style="margin-right: 8px;"></i> تسوق التشكيلة الآن </button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature">
+            <div class="feature-icon"><i class="fas fa-crown"></i></div>
+            <p>مناسب لكل الأذواق</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon"><i class="fas fa-certificate"></i></div>
+            <p>جودة عالية</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon"><i class="fas fa-hat-cowboy"></i></div>
+            <p>تصاميم عصرية</p>
+        </div>
+    </section>
+
+    <!-- Latest Products Section -->
+    <section class="latest-products">
+        <div class="section-header">
+            <h2>أحدث المنتجات</h2>
+        </div>
+        
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card" onclick="window.location.href='product-details.html?img=img/caven-cap-charcoal.webp&title=كاب رمادي غامق'" style="cursor: pointer;">
+                <div class="product-image-box">
+                    <button class="wishlist-btn" onclick="event.stopPropagation();"><i class="far fa-heart"></i></button>
+                    <img src="img/caven-cap-charcoal.webp" alt="كاب رمادي غامق">
+                </div>
+                <div class="product-info">
+                    <h3>كاب رمادي غامق</h3>
+                    <div class="color-options">
+                        <span class="color-dot" style="background-color: #36454F;"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card" onclick="window.location.href='product-details.html?img=img/caven-cap-burgundy.webp&title=كاب عنابي'" style="cursor: pointer;">
+                <div class="product-image-box">
+                    <button class="wishlist-btn" onclick="event.stopPropagation();"><i class="far fa-heart"></i></button>
+                    <img src="img/caven-cap-burgundy.webp" alt="كاب عنابي">
+                </div>
+                <div class="product-info">
+                    <h3>كاب عنابي</h3>
+                    <div class="color-options">
+                        <span class="color-dot" style="background-color: #800020;"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card" onclick="window.location.href='product-details.html?img=img/caven-cap-sage.webp&title=كاب مريمية'" style="cursor: pointer;">
+                <div class="product-image-box">
+                    <button class="wishlist-btn" onclick="event.stopPropagation();"><i class="far fa-heart"></i></button>
+                    <img src="img/caven-cap-sage.webp" alt="كاب مريمية">
+                </div>
+                <div class="product-info">
+                    <h3>كاب مريمية</h3>
+                    <div class="color-options">
+                        <span class="color-dot" style="background-color: #8A9A86;"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card" onclick="window.location.href='product-details.html?img=img/caven-cap-pink.webp&title=كاب وردي'" style="cursor: pointer;">
+                <div class="product-image-box">
+                    <button class="wishlist-btn" onclick="event.stopPropagation();"><i class="far fa-heart"></i></button>
+                    <img src="img/caven-cap-pink.webp" alt="كاب وردي">
+                </div>
+                <div class="product-info">
+                    <h3>كاب وردي</h3>
+                    <div class="color-options">
+                        <span class="color-dot" style="background-color: #FFC0CB;"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn-secondary" onclick="window.location.href='products.html'">عرض جميع المنتجات <i class="fas fa-arrow-left"></i></button>
+    </section>
+
+    <!-- Banner Section -->
+    <section class="banner">
+        <div class="banner-content">
+            <h2>ستايل بسيط .. يبين شخصيتك</h2>
+            <p>مجموعة من الكابات بتصاميم كلاسيكية وعصرية تناسب جميع المناسبات والاستخدام اليومي</p>
+            <button class="btn-primary" style="margin-top: 10px;" onclick="window.location.href='products.html'">تصفح المجموعة</button>
+        </div>
+        <div class="banner-image">
+            <img src="img/caven-cap-burgundy.webp" alt="كاب عنابي">
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
