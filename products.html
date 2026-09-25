@@ -13,10 +13,16 @@
 <body>
     <!-- Navbar -->
     <header class="header">
-        <div class="logo">CAVEN — كافِن</div>
+        <a href="index.html" class="logo" style="text-decoration: none;">CAVEN — كافِن</a>
+        <nav class="nav-links">
+            <a href="index.html">الرئيسية</a>
+            <a href="products.html" class="active">المنتجات</a>
+            <a href="#">من نحن</a>
+        </nav>
         <div class="header-icons">
-            <i class="fas fa-search"></i>
+            <a href="index.html" class="mobile-home-icon" style="color:var(--text-dark); text-decoration:none;"><i class="fas fa-home"></i></a>
             <i class="far fa-heart"></i>
+            <i class="fas fa-shopping-bag"></i>
             <i class="fas fa-bars menu-toggle"></i>
         </div>
     </header>
@@ -24,14 +30,14 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu">
         <div class="mobile-menu-header">
-            <div class="logo">CAVEN — كافِن</div>
+            <a href="index.html" class="logo" style="text-decoration: none;">CAVEN</a>
             <i class="fas fa-times close-menu"></i>
         </div>
         <nav class="mobile-nav-links">
-            <a href="index.html">الرئيسية</a>
-            <a href="products.html" class="active">المنتجات</a>
-            <a href="#">من نحن</a>
-            <a href="#">تواصل معنا</a>
+            <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
+            <a href="products.html" class="active"><i class="fas fa-th-large"></i> المنتجات</a>
+            <a href="#" class="mobile-cart-link"><i class="fas fa-shopping-bag"></i> سلة المشتريات</a>
+            <a href="#" class="mobile-wishlist-link"><i class="far fa-heart"></i> المفضلة</a>
         </nav>
     </div>
 

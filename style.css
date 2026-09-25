@@ -412,6 +412,10 @@ body {
         display: none;
     }
     
+    .mobile-home-icon {
+        display: none;
+    }
+    
     .nav-links {
         display: flex;
         gap: 2rem;
