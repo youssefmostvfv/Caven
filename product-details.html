@@ -10,6 +10,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        // Instant early-execution before DOM rendering to eliminate image switch lag
+        (function earlyProductInit() {
+            const params = new URLSearchParams(window.location.search);
+            const imgSrc = params.get('img');
+            const title = params.get('title');
+
+            if (imgSrc) {
+                const baseNameMatch = imgSrc.match(/(.*?)(\s*\(\d+\))?(\.webp|\.png|\.jpg)/);
+                if (baseNameMatch) {
+                    window.__targetCleanBase = baseNameMatch[1];
+                    window.__targetExt = baseNameMatch[3];
+                }
+            }
+            if (title) {
+                window.__targetTitle = title;
+            }
+        })();
+    </script>
 </head>
 
 <body>
@@ -58,6 +77,11 @@
                 <div class="main-image">
                     <span class="discount-badge">خصم 65%</span>
                     <img src="img/caven-cap-charcoal.webp" id="main-product-img" alt="كاب محجر">
+                    <script>
+                        if (window.__targetCleanBase && window.__targetExt) {
+                            document.getElementById('main-product-img').src = window.__targetCleanBase + window.__targetExt;
+                        }
+                    </script>
                 </div>
                 <div class="thumbnail-list">
                     <img src="img/caven-cap-charcoal.webp" class="thumb active" alt="صورة مصغرة 1">
@@ -65,6 +89,18 @@
                     <img src="img/caven-cap-charcoal (3).webp" class="thumb" alt="صورة مصغرة 3">
                     <img src="img/caven-cap-charcoal (4).webp" class="thumb" alt="صورة مصغرة 4">
                     <img src="img/caven-cap-charcoal (5).webp" class="thumb" alt="صورة مصغرة 5">
+                    <script>
+                        if (window.__targetCleanBase && window.__targetExt) {
+                            const thumbs = document.querySelectorAll('.thumb');
+                            if (thumbs.length >= 5) {
+                                thumbs[0].src = window.__targetCleanBase + window.__targetExt;
+                                thumbs[1].src = window.__targetCleanBase + ' (2)' + window.__targetExt;
+                                thumbs[2].src = window.__targetCleanBase + ' (3)' + window.__targetExt;
+                                thumbs[3].src = window.__targetCleanBase + ' (4)' + window.__targetExt;
+                                thumbs[4].src = window.__targetCleanBase + ' (5)' + window.__targetExt;
+                            }
+                        }
+                    </script>
                 </div>
             </div>
 
@@ -72,6 +108,11 @@
             <div class="product-info-details">
                 <div style="display: flex; justify-content: space-between; align-items: flex-start;">
                     <h1 class="product-title" style="margin-bottom: 0;">كاب محجر</h1>
+                    <script>
+                        if (window.__targetTitle) {
+                            document.querySelector('.product-title').innerText = window.__targetTitle;
+                        }
+                    </script>
                     <button class="wishlist-btn-large"
                         style="background: none; border: none; font-size: 1.8rem; color: #ccc; cursor: pointer; padding: 0;"><i
                             class="far fa-heart"></i></button>
@@ -203,47 +244,8 @@
     <script>
         // Specific logic for product details page
         document.addEventListener('DOMContentLoaded', () => {
-            // Dynamic content from URL
             const params = new URLSearchParams(window.location.search);
             const imgSrc = params.get('img');
-            const title = params.get('title');
-
-            if (imgSrc) {
-                // Clean image src in case it has spaces or (2) etc.
-                // E.g., img/caven-cap-burgundy.webp or img/caven-cap-charcoal (2).webp
-                const baseNameMatch = imgSrc.match(/(.*?)(\s*\(\d+\))?(\.webp|\.png|\.jpg)/);
-                if (baseNameMatch) {
-                    const cleanBase = baseNameMatch[1]; // img/caven-cap-burgundy
-                    const ext = baseNameMatch[3]; // .webp
-
-                    const mainImg = document.getElementById('main-product-img');
-                    if (mainImg) mainImg.src = cleanBase + ext;
-
-                    const thumbs = document.querySelectorAll('.thumb');
-                    if (thumbs.length >= 5) {
-                        thumbs[0].src = cleanBase + ext;
-                        thumbs[1].src = cleanBase + ' (2)' + ext;
-                        thumbs[2].src = cleanBase + ' (3)' + ext;
-                        thumbs[3].src = cleanBase + ' (4)' + ext;
-                        thumbs[4].src = cleanBase + ' (5)' + ext;
-                    }
-
-                    // Reset active thumbnail
-                    thumbs.forEach(t => t.classList.remove('active'));
-                    thumbs[0].classList.add('active');
-                }
-            }
-
-            if (title) {
-                const titleEl = document.querySelector('.product-title');
-                if (titleEl) titleEl.innerText = title;
-                const breadcrumb = document.querySelector('.breadcrumb');
-                if (breadcrumb) breadcrumb.innerHTML = `
-                    <a href="index.html" class="breadcrumb-link">الرئيسية</a> / 
-                    <a href="products.html" class="breadcrumb-link">المنتجات</a> / 
-                    <span class="current-page" style="color: var(--text-dark); font-weight: 700;">${title}</span>
-                `;
-            }
 
             // Dynamic available caps filtering (renders the other 3 available caps)
             const availableCaps = [
@@ -271,11 +273,14 @@
                 });
             }
 
-            // Thumbnail selection
+            // Preload thumbnail images into browser cache for instant switching
             const mainImg = document.getElementById('main-product-img');
             const thumbs = document.querySelectorAll('.thumb');
 
             thumbs.forEach(thumb => {
+                const imgPreloader = new Image();
+                imgPreloader.src = thumb.src;
+
                 thumb.addEventListener('click', function () {
                     mainImg.src = this.src;
                     thumbs.forEach(t => t.classList.remove('active'));
