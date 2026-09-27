@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Clear old cart to avoid pricing issues with v2
-    if (!localStorage.getItem('caven_cart_v2')) {
+    // Clear old cart to avoid pricing issues with v3 (150 EGP)
+    if (!localStorage.getItem('caven_cart_v3')) {
         localStorage.removeItem('caven_cart');
-        localStorage.setItem('caven_cart_v2', 'true');
+        localStorage.setItem('caven_cart_v3', 'true');
     }
 
     // Mobile Menu Toggle
@@ -142,8 +142,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span id="cart-subtotal">0 ج.م</span>
                 </div>
                 <div class="summary-line discount-line" id="cart-discount-line" style="display:none;">
-                    <span>خصم (عرض القطعتين):</span>
-                    <span id="cart-discount-amount">-0 ج.م</span>
+                    <span>الشحن:</span>
+                    <span id="cart-discount-amount" style="color: #27ae60; font-weight: bold;">شحن مجاني (0 ج.م)</span>
                 </div>
                 <div class="summary-line total">
                     <span>الإجمالي:</span>
@@ -253,25 +253,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.getElementById('cart-subtotal').innerText = subtotal + ' ج.م';
 
-        // Discount Logic: 50 LE off on pairs (every 2 items = 350 LE)
-        let discount = 0;
-        let allPrices = [];
-        cart.forEach(item => {
-            for(let i=0; i<item.qty; i++) {
-                allPrices.push(item.price);
-            }
-        });
-        // Calculate discount for every pair
-        let pairs = Math.floor(allPrices.length / 2);
-        if (pairs > 0) {
-            discount = pairs * 50; // 50 LE discount per pair
-            document.getElementById('cart-discount-line').style.display = 'flex';
-            document.getElementById('cart-discount-amount').innerText = '-' + discount + ' ج.م';
-        } else {
-            document.getElementById('cart-discount-line').style.display = 'none';
-        }
+        document.getElementById('cart-discount-line').style.display = 'flex';
+        document.getElementById('cart-discount-amount').innerText = 'شحن مجاني (0 ج.م)';
 
-        let finalTotal = subtotal - discount;
+        let finalTotal = subtotal;
         document.getElementById('cart-total').innerText = finalTotal + ' ج.م';
 
         if(cart.length === 0) {
@@ -309,7 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Get data based on context
             let title = 'كاب';
-            let price = 200;
+            let price = 150;
             let img = 'img/caven-cap-black.webp';
             let qty = 1;
 
