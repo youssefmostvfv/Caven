@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Clear old cart to avoid pricing issues with v3 (150 EGP)
-    if (!localStorage.getItem('caven_cart_v3')) {
+    // Clear old cart to avoid pricing issues with v4 (250 EGP)
+    if (!localStorage.getItem('caven_cart_v4')) {
         localStorage.removeItem('caven_cart');
-        localStorage.setItem('caven_cart_v3', 'true');
+        localStorage.setItem('caven_cart_v4', 'true');
     }
 
     // Mobile Menu Toggle
@@ -294,7 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Get data based on context
             let title = 'كاب';
-            let price = 150;
+            let price = 250;
             let img = 'img/caven-cap-black.webp';
             let qty = 1;
 
