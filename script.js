@@ -37,16 +37,111 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Hero Slider Dots
+    // Latest Products (mobile only): one big cap + 3 small, rotating through all caps every 3s
+    document.querySelectorAll('.featured-rotator').forEach(rotator => {
+        const cards = Array.from(rotator.querySelectorAll('.product-card'));
+        const mobileMQ = window.matchMedia('(max-width: 767px)');
+        const VISIBLE = 4; // 1 featured + 3 small
+        let featuredIndex = 0;
+        const render = () => {
+            cards.forEach((card, i) => {
+                const pos = (i - featuredIndex + cards.length) % cards.length;
+                card.style.order = pos;
+                card.classList.toggle('featured', pos === 0);
+                card.classList.toggle('rot-hidden', pos >= VISIBLE);
+            });
+        };
+        const reset = () => {
+            cards.forEach(card => {
+                card.style.order = '';
+                card.classList.remove('featured', 'rot-hidden');
+            });
+        };
+        if (mobileMQ.matches) render();
+
+        // FLIP animation: smoothly move/resize cards to their new slots
+        const animateTo = (nextIndex) => {
+            const first = cards.map(c => c.getBoundingClientRect());
+            featuredIndex = nextIndex;
+            render();
+            cards.forEach((card, i) => {
+                const last = card.getBoundingClientRect();
+                const f = first[i];
+                if (!last.width || !last.height) return;
+                if (!f.width || !f.height) {
+                    // Card just entered the visible row: fade/scale in
+                    card.animate([
+                        { opacity: 0, transform: 'scale(0.85)' },
+                        { opacity: 1, transform: 'none' }
+                    ], { duration: 800, easing: 'cubic-bezier(0.65, 0, 0.35, 1)' });
+                    return;
+                }
+                const dx = f.left - last.left;
+                const dy = f.top - last.top;
+                const sx = f.width / last.width;
+                const sy = f.height / last.height;
+                card.animate([
+                    { transformOrigin: 'top left', transform: `translate(${dx}px, ${dy}px) scale(${sx}, ${sy})` },
+                    { transformOrigin: 'top left', transform: 'none' }
+                ], { duration: 800, easing: 'cubic-bezier(0.65, 0, 0.35, 1)' });
+                const inner = card.querySelector('.product-info');
+                if (inner) {
+                    inner.animate([{ opacity: 0 }, { opacity: 0 }, { opacity: 1 }],
+                        { duration: 800, easing: 'ease-out' });
+                }
+            });
+        };
+
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (cards.length > 1) {
+            let rotTimer;
+            const startRot = () => {
+                clearInterval(rotTimer);
+                if (!mobileMQ.matches) return;
+                rotTimer = setInterval(() => {
+                    const next = (featuredIndex + 1) % cards.length;
+                    if (reduceMotion) { featuredIndex = next; render(); }
+                    else animateTo(next);
+                }, 3000);
+            };
+            // Pause while hovering/touching so users can click comfortably
+            rotator.addEventListener('mouseenter', () => clearInterval(rotTimer));
+            rotator.addEventListener('mouseleave', startRot);
+            document.addEventListener('visibilitychange', () => {
+                clearInterval(rotTimer);
+                if (!document.hidden) startRot();
+            });
+            // Switch between mobile rotator and the normal desktop grid on resize
+            mobileMQ.addEventListener('change', (e) => {
+                if (e.matches) { render(); startRot(); }
+                else { clearInterval(rotTimer); reset(); }
+            });
+            startRot();
+        }
+    });
+
+    // Hero Slider
+    const heroSlides = document.querySelectorAll('.hero .hero-slides .hero-image');
     const sliderDots = document.querySelectorAll('.hero .slider-dots .dot');
-    if (sliderDots.length > 0) {
-        sliderDots.forEach(dot => {
-            dot.addEventListener('click', function() {
-                sliderDots.forEach(d => d.classList.remove('active'));
-                this.classList.add('active');
-                // In a real app, this would change the hero image too
+    if (heroSlides.length > 1) {
+        let current = 0;
+        let timer;
+        const showSlide = (i) => {
+            heroSlides[current].classList.remove('active');
+            if (sliderDots[current]) sliderDots[current].classList.remove('active');
+            current = (i + heroSlides.length) % heroSlides.length;
+            heroSlides[current].classList.add('active');
+            if (sliderDots[current]) sliderDots[current].classList.add('active');
+        };
+        const start = () => { timer = setInterval(() => showSlide(current + 1), 3500); };
+        sliderDots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                clearInterval(timer);
+                showSlide(i);
+                start();
             });
         });
+        start();
     }
 
     // Link Products to Details Page
@@ -143,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="summary-line discount-line" id="cart-discount-line" style="display:none;">
                     <span>الشحن:</span>
-                    <span id="cart-discount-amount" style="color: #27ae60; font-weight: bold;">شحن مجاني (0 ج.م)</span>
+                    <span id="cart-discount-amount" style="color: #27ae60; font-weight: bold;">شحن مجاني داخل مغاغة (0 ج.م)</span>
                 </div>
                 <div class="summary-line total">
                     <span>الإجمالي:</span>
@@ -254,7 +349,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('cart-subtotal').innerText = subtotal + ' ج.م';
 
         document.getElementById('cart-discount-line').style.display = 'flex';
-        document.getElementById('cart-discount-amount').innerText = 'شحن مجاني (0 ج.م)';
+        document.getElementById('cart-discount-amount').innerText = 'شحن مجاني داخل مغاغة (0 ج.م)';
 
         let finalTotal = subtotal;
         document.getElementById('cart-total').innerText = finalTotal + ' ج.م';
@@ -295,13 +390,15 @@ document.addEventListener('DOMContentLoaded', () => {
             // Get data based on context
             let title = 'كاب';
             let price = 250;
-            let img = 'img/caven-cap-black.webp';
+            let img = 'img/caps/caven-cap-black.webp';
             let qty = 1;
 
             // If on product details
             const titleEl = document.querySelector('.product-title');
             if(titleEl) {
                 title = titleEl.innerText;
+                const priceEl = document.querySelector('.product-price[data-price]');
+                if(priceEl) price = parseInt(priceEl.dataset.price) || price;
                 const qtyInput = document.querySelector('.qty-input');
                 if(qtyInput) qty = parseInt(qtyInput.value);
                 const mainImg = document.getElementById('main-product-img');
@@ -550,7 +647,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let title = 'كاب';
             let price = 250;
-            let img = 'img/caven-cap-black.webp';
+            let img = 'img/caps/caven-cap-black.webp';
 
             // If on product details
             const titleEl = document.querySelector('.product-title');
@@ -582,3 +679,94 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+// Drag-to-scroll with the mouse on ANY scrollable area (like swiping on mobile)
+// Works automatically on every page, including content added later
+(function () {
+    const scrollableX = el => {
+        const o = getComputedStyle(el).overflowX;
+        return (o === 'auto' || o === 'scroll') && el.scrollWidth > el.clientWidth + 1;
+    };
+    const scrollableY = el => {
+        const o = getComputedStyle(el).overflowY;
+        return (o === 'auto' || o === 'scroll') && el.scrollHeight > el.clientHeight + 1;
+    };
+    // Find the nearest scrollable box under the mouse (not the page itself)
+    const findScroller = target => {
+        for (let el = target; el && el !== document.body && el !== document.documentElement; el = el.parentElement) {
+            if (scrollableX(el) || scrollableY(el)) return el;
+        }
+        return null;
+    };
+    const isFormField = el => el.closest('input, textarea, select, [contenteditable="true"]');
+
+    let el = null, startX = 0, startY = 0, startLeft = 0, startTop = 0, moved = false;
+    let lastX = 0, lastY = 0, lastT = 0, vx = 0, vy = 0, rafId = null, glideEl = null;
+
+    const glide = () => {
+        vx *= 0.95; vy *= 0.95;
+        if (Math.abs(vx) < 0.3 && Math.abs(vy) < 0.3) return;
+        glideEl.scrollLeft -= vx;
+        glideEl.scrollTop -= vy;
+        rafId = requestAnimationFrame(glide);
+    };
+
+    document.addEventListener('mousedown', e => {
+        if (e.button !== 0 || isFormField(e.target)) return;
+        const s = findScroller(e.target);
+        if (!s) return;
+        cancelAnimationFrame(rafId);
+        el = s; moved = false;
+        startX = lastX = e.clientX; startY = lastY = e.clientY;
+        startLeft = el.scrollLeft; startTop = el.scrollTop;
+        lastT = performance.now(); vx = vy = 0;
+        e.preventDefault(); // no text selection / image ghost-drag
+    });
+
+    window.addEventListener('mousemove', e => {
+        if (!el) return;
+        const dx = e.clientX - startX, dy = e.clientY - startY;
+        if (!moved && Math.hypot(dx, dy) > 5) { moved = true; el.classList.add('is-dragging'); }
+        if (!moved) return;
+        el.scrollLeft = startLeft - dx;
+        el.scrollTop = startTop - dy;
+        const now = performance.now(), dt = now - lastT || 16;
+        vx = (e.clientX - lastX) * (16 / dt);
+        vy = (e.clientY - lastY) * (16 / dt);
+        lastX = e.clientX; lastY = e.clientY; lastT = now;
+    });
+
+    window.addEventListener('mouseup', () => {
+        if (!el) return;
+        el.classList.remove('is-dragging');
+        if (moved) { glideEl = el; rafId = requestAnimationFrame(glide); }
+        el = null;
+    });
+
+    // A drag shouldn't count as a click on whatever is under the mouse
+    document.addEventListener('click', e => {
+        if (moved) { e.stopPropagation(); e.preventDefault(); moved = false; }
+    }, true);
+})();
+
+// Mouse wheel on a sideways-only scroll row (e.g. watch colors) scrolls it left/right
+document.addEventListener('wheel', e => {
+    if (e.ctrlKey || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+    for (let el = e.target; el && el !== document.body; el = el.parentElement) {
+        const cs = getComputedStyle(el);
+        const sideways = (cs.overflowX === 'auto' || cs.overflowX === 'scroll') && el.scrollWidth > el.clientWidth + 1;
+        const vertical = (cs.overflowY === 'auto' || cs.overflowY === 'scroll') && el.scrollHeight > el.clientHeight + 1;
+        if (vertical) return; // normal vertical scroll area
+        if (!sideways) continue;
+        // RTL-safe: only take over while the row can still move in that direction
+        const max = el.scrollWidth - el.clientWidth;
+        const pos = Math.abs(el.scrollLeft);
+        const dir = cs.direction === 'rtl' ? -1 : 1;
+        const delta = e.deltaY * dir;
+        const canMove = delta * dir > 0 ? pos < max - 1 : pos > 1;
+        if (!canMove) return; // at the end: let the page scroll
+        e.preventDefault();
+        el.scrollBy({ left: delta, behavior: 'auto' });
+        return;
+    }
+}, { passive: false });

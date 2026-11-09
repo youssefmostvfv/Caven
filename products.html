@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CAVEN — كافِن | جميع المنتجات</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=6">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="caps-data.js"></script>
 </head>
 
 <body>
@@ -19,6 +20,9 @@
         <nav class="nav-links">
             <a href="index.html">الرئيسية</a>
             <a href="products.html" class="active">المنتجات</a>
+            <a href="accessories.html">الاكسسوارات</a>
+            <a href="perfumes.html">العطور</a>
+            <a href="watches.html">الساعات</a>
             <a href="#">من نحن</a>
         </nav>
         <div class="header-icons">
@@ -39,6 +43,9 @@
         <nav class="mobile-nav-links">
             <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
             <a href="products.html" class="active"><i class="fas fa-th-large"></i> المنتجات</a>
+            <a href="accessories.html"><i class="fas fa-gem"></i> الاكسسوارات</a>
+            <a href="perfumes.html"><i class="fas fa-spray-can-sparkles"></i> العطور</a>
+            <a href="watches.html"><i class="far fa-clock"></i> الساعات</a>
             <a href="#" class="mobile-cart-link"><i class="fas fa-shopping-bag"></i> سلة المشتريات</a>
             <a href="#" class="mobile-wishlist-link"><i class="far fa-heart"></i> المفضلة</a>
         </nav>
@@ -101,16 +108,16 @@
 
         <!-- Main Products Grid -->
         <main class="products-main">
-            <div class="products-grid products-grid-page">
+            <div class="products-grid products-grid-page" id="all-caps">
 
                 <!-- Product 1 -->
                 <div class="product-card"
-                    onclick="window.location.href='product-details.html?img=img/caven-cap-burgundy.webp&title=كاب برجاندي'"
+                    onclick="window.location.href='product-details.html?img=img/caps/caven-cap-burgundy.webp&title=كاب برجاندي'"
                     style="cursor: pointer;">
                     <div class="product-image-box">
                         <button class="wishlist-btn" onclick="event.stopPropagation();"><i
                                 class="far fa-heart"></i></button>
-                        <img src="img/caven-cap-burgundy.webp" alt="كاب برجاندي">
+                        <img src="img/caps/caven-cap-burgundy.webp" alt="كاب برجاندي">
                     </div>
                     <div class="product-info">
                         <h3>كاب برجاندي</h3>
@@ -122,12 +129,12 @@
 
                 <!-- Product 2 -->
                 <div class="product-card"
-                    onclick="window.location.href='product-details.html?img=img/caven-cap-charcoal.webp&title=كاب محجر'"
+                    onclick="window.location.href='product-details.html?img=img/caps/caven-cap-charcoal.webp&title=كاب محجر'"
                     style="cursor: pointer;">
                     <div class="product-image-box">
                         <button class="wishlist-btn" onclick="event.stopPropagation();"><i
                                 class="far fa-heart"></i></button>
-                        <img src="img/caven-cap-charcoal.webp" alt="كاب محجر">
+                        <img src="img/caps/caven-cap-charcoal.webp" alt="كاب محجر">
                     </div>
                     <div class="product-info">
                         <h3>كاب محجر</h3>
@@ -139,12 +146,12 @@
 
                 <!-- Product 3 -->
                 <div class="product-card"
-                    onclick="window.location.href='product-details.html?img=img/caven-cap-dark-green.webp&title=كاب محجر زيتي'"
+                    onclick="window.location.href='product-details.html?img=img/caps/caven-cap-dark-green.webp&title=كاب محجر زيتي'"
                     style="cursor: pointer;">
                     <div class="product-image-box">
                         <button class="wishlist-btn" onclick="event.stopPropagation();"><i
                                 class="far fa-heart"></i></button>
-                        <img src="img/caven-cap-dark-green.webp" alt="كاب محجر زيتي">
+                        <img src="img/caps/caven-cap-dark-green.webp" alt="كاب محجر زيتي">
                     </div>
                     <div class="product-info">
                         <h3>كاب محجر زيتي</h3>
@@ -156,13 +163,13 @@
 
                 <!-- Product 4 -->
                 <div class="product-card sold-out-card"
-                    onclick="window.location.href='product-details.html?img=img/caven-cap-light-blue.webp&title=كاب محجر سماوي'"
+                    onclick="window.location.href='product-details.html?img=img/caps/caven-cap-light-blue.webp&title=كاب محجر سماوي'"
                     style="cursor: pointer;">
                     <div class="product-image-box">
                         <button class="wishlist-btn" onclick="event.stopPropagation();"><i
                                 class="far fa-heart"></i></button>
                         <span class="sold-out-badge">قريبا</span>
-                        <img src="img/caven-cap-light-blue.webp" alt="كاب محجر سماوي">
+                        <img src="img/caps/caven-cap-light-blue.webp" alt="كاب محجر سماوي">
                     </div>
                     <div class="product-info">
                         <h3>كاب محجر سماوي</h3>
@@ -174,12 +181,12 @@
 
                 <!-- Product 5 -->
                 <div class="product-card"
-                    onclick="window.location.href='product-details.html?img=img/caven-cap-pink.webp&title=كاب محجر وردي'"
+                    onclick="window.location.href='product-details.html?img=img/caps/caven-cap-pink.webp&title=كاب محجر وردي'"
                     style="cursor: pointer;">
                     <div class="product-image-box">
                         <button class="wishlist-btn" onclick="event.stopPropagation();"><i
                                 class="far fa-heart"></i></button>
-                        <img src="img/caven-cap-pink.webp" alt="كاب محجر وردي">
+                        <img src="img/caps/caven-cap-pink.webp" alt="كاب محجر وردي">
                     </div>
                     <div class="product-info">
                         <h3>كاب محجر وردي</h3>
@@ -191,13 +198,13 @@
 
                 <!-- Product 6 -->
                 <div class="product-card sold-out-card"
-                    onclick="window.location.href='product-details.html?img=img/caven-cap-purple.webp&title=كاب محجر بنفسجي'"
+                    onclick="window.location.href='product-details.html?img=img/caps/caven-cap-purple.webp&title=كاب محجر بنفسجي'"
                     style="cursor: pointer;">
                     <div class="product-image-box">
                         <button class="wishlist-btn" onclick="event.stopPropagation();"><i
                                 class="far fa-heart"></i></button>
                         <span class="sold-out-badge">قريبا</span>
-                        <img src="img/caven-cap-purple.webp" alt="كاب محجر بنفسجي">
+                        <img src="img/caps/caven-cap-purple.webp" alt="كاب محجر بنفسجي">
                     </div>
                     <div class="product-info">
                         <h3>كاب محجر بنفسجي</h3>
@@ -209,13 +216,13 @@
 
                 <!-- Product 7 -->
                 <div class="product-card sold-out-card"
-                    onclick="window.location.href='product-details.html?img=img/caven-cap-royal-blue.webp&title=كاب ازرق ملكي'"
+                    onclick="window.location.href='product-details.html?img=img/caps/caven-cap-royal-blue.webp&title=كاب ازرق ملكي'"
                     style="cursor: pointer;">
                     <div class="product-image-box">
                         <button class="wishlist-btn" onclick="event.stopPropagation();"><i
                                 class="far fa-heart"></i></button>
                         <span class="sold-out-badge">قريبا</span>
-                        <img src="img/caven-cap-royal-blue.webp" alt="كاب ازرق ملكي">
+                        <img src="img/caps/caven-cap-royal-blue.webp" alt="كاب ازرق ملكي">
                     </div>
                     <div class="product-info">
                         <h3>كاب ازرق ملكي</h3>
@@ -227,13 +234,13 @@
 
                 <!-- Product 8 -->
                 <div class="product-card sold-out-card"
-                    onclick="window.location.href='product-details.html?img=img/caven-cap-sage.webp&title=كاب زيتي'"
+                    onclick="window.location.href='product-details.html?img=img/caps/caven-cap-sage.webp&title=كاب زيتي'"
                     style="cursor: pointer;">
                     <div class="product-image-box">
                         <button class="wishlist-btn" onclick="event.stopPropagation();"><i
                                 class="far fa-heart"></i></button>
                         <span class="sold-out-badge">قريبا</span>
-                        <img src="img/caven-cap-sage.webp" alt="كاب زيتي">
+                        <img src="img/caps/caven-cap-sage.webp" alt="كاب زيتي">
                     </div>
                     <div class="product-info">
                         <h3>كاب زيتي</h3>
@@ -242,6 +249,30 @@
                         </div>
                     </div>
                 </div>
+            <script>
+                // New caps (from caps-data.js) — each color as its own card
+                (function () {
+                    const grid = document.getElementById('all-caps');
+                    window.CAP_CARDS.forEach(c => {
+                        grid.insertAdjacentHTML('beforeend', `
+                <div class="product-card"
+                    onclick="window.location.href='product-details.html?img=${c.image}&title=${encodeURIComponent(c.title)}'"
+                    style="cursor: pointer;">
+                    <div class="product-image-box">
+                        <button class="wishlist-btn" onclick="event.stopPropagation();"><i
+                                class="far fa-heart"></i></button>
+                        <img src="${c.image}" alt="${c.title}" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3>${c.title}</h3>
+                        <div class="color-options">
+                            <span class="color-dot" style="background-color: ${c.hex};"></span>
+                        </div>
+                    </div>
+                </div>`);
+                    });
+                })();
+            </script>
             </div>
 
             <div style="text-align: center; margin-top: 2rem;">
@@ -250,7 +281,7 @@
         </main>
     </section>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=3"></script>
 </body>
 
 </html>

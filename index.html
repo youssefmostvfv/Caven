@@ -5,11 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CAVEN — كافِن | كابات بتكمل إطلالتك</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=6">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="perfumes-data.js"></script>
+    <script src="watches-data.js"></script>
+    <script src="caps-data.js"></script>
 </head>
 
 <body>
@@ -19,6 +22,9 @@
         <nav class="nav-links">
             <a href="index.html" class="active">الرئيسية</a>
             <a href="products.html">المنتجات</a>
+            <a href="accessories.html">الاكسسوارات</a>
+            <a href="perfumes.html">العطور</a>
+            <a href="watches.html">الساعات</a>
             <a href="#">من نحن</a>
         </nav>
         <div class="header-icons">
@@ -39,6 +45,9 @@
         <nav class="mobile-nav-links">
             <a href="index.html" class="active"><i class="fas fa-home"></i> الرئيسية</a>
             <a href="products.html"><i class="fas fa-th-large"></i> المنتجات</a>
+            <a href="accessories.html"><i class="fas fa-gem"></i> الاكسسوارات</a>
+            <a href="perfumes.html"><i class="fas fa-spray-can-sparkles"></i> العطور</a>
+            <a href="watches.html"><i class="far fa-clock"></i> الساعات</a>
             <a href="#" class="mobile-cart-link"><i class="fas fa-shopping-bag"></i> سلة المشتريات</a>
             <a href="#" class="mobile-wishlist-link"><i class="far fa-heart"></i> المفضلة</a>
         </nav>
@@ -47,9 +56,16 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-image-container">
-            <img src="img/caven-cap-charcoal.webp" alt="كاب محجر" class="hero-image">
+            <div class="hero-slides">
+                <img src="img/caps/caven-cap-charcoal.webp" alt="كاب محجر" class="hero-image active">
+                <img src="img/caps/caven-cap-burgundy.webp" alt="كاب برجاندي" class="hero-image">
+                <img src="img/caps/caven-cap-sage.webp" alt="كاب زيتي" class="hero-image">
+                <img src="img/caps/caven-cap-pink.webp" alt="كاب محجر وردي" class="hero-image">
+            </div>
             <div class="slider-dots">
                 <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
                 <span class="dot"></span>
             </div>
         </div>
@@ -83,15 +99,15 @@
             <h2>أحدث المنتجات</h2>
         </div>
 
-        <div class="products-grid">
+        <div class="products-grid featured-rotator" id="latest-caps">
             <!-- Product 1 -->
             <div class="product-card"
-                onclick="window.location.href='product-details.html?img=img/caven-cap-charcoal.webp&title=كاب محجر'"
+                onclick="window.location.href='product-details.html?img=img/caps/caven-cap-charcoal.webp&title=كاب محجر'"
                 style="cursor: pointer;">
                 <div class="product-image-box">
                     <button class="wishlist-btn" onclick="event.stopPropagation();"><i
                             class="far fa-heart"></i></button>
-                    <img src="img/caven-cap-charcoal.webp" alt="كاب محجر">
+                    <img src="img/caps/caven-cap-charcoal.webp" alt="كاب محجر">
                 </div>
                 <div class="product-info">
                     <h3>كاب محجر</h3>
@@ -103,12 +119,12 @@
 
             <!-- Product 2 -->
             <div class="product-card"
-                onclick="window.location.href='product-details.html?img=img/caven-cap-burgundy.webp&title=كاب برجاندي'"
+                onclick="window.location.href='product-details.html?img=img/caps/caven-cap-burgundy.webp&title=كاب برجاندي'"
                 style="cursor: pointer;">
                 <div class="product-image-box">
                     <button class="wishlist-btn" onclick="event.stopPropagation();"><i
                             class="far fa-heart"></i></button>
-                    <img src="img/caven-cap-burgundy.webp" alt="كاب برجاندي">
+                    <img src="img/caps/caven-cap-burgundy.webp" alt="كاب برجاندي">
                 </div>
                 <div class="product-info">
                     <h3>كاب برجاندي</h3>
@@ -120,13 +136,13 @@
 
             <!-- Product 3 -->
             <div class="product-card sold-out-card"
-                onclick="window.location.href='product-details.html?img=img/caven-cap-sage.webp&title=كاب زيتي'"
+                onclick="window.location.href='product-details.html?img=img/caps/caven-cap-sage.webp&title=كاب زيتي'"
                 style="cursor: pointer;">
                 <div class="product-image-box">
                     <button class="wishlist-btn" onclick="event.stopPropagation();"><i
                             class="far fa-heart"></i></button>
                     <span class="sold-out-badge">قريبا</span>
-                    <img src="img/caven-cap-sage.webp" alt="كاب زيتي">
+                    <img src="img/caps/caven-cap-sage.webp" alt="كاب زيتي">
                 </div>
                 <div class="product-info">
                     <h3>كاب زيتي</h3>
@@ -138,12 +154,12 @@
 
             <!-- Product 4 -->
             <div class="product-card"
-                onclick="window.location.href='product-details.html?img=img/caven-cap-pink.webp&title=كاب محجر وردي'"
+                onclick="window.location.href='product-details.html?img=img/caps/caven-cap-pink.webp&title=كاب محجر وردي'"
                 style="cursor: pointer;">
                 <div class="product-image-box">
                     <button class="wishlist-btn" onclick="event.stopPropagation();"><i
                             class="far fa-heart"></i></button>
-                    <img src="img/caven-cap-pink.webp" alt="كاب محجر وردي">
+                    <img src="img/caps/caven-cap-pink.webp" alt="كاب محجر وردي">
                 </div>
                 <div class="product-info">
                     <h3>كاب محجر وردي</h3>
@@ -152,9 +168,373 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Extra products: shown only in the mobile rotator -->
+            <div class="product-card rotator-extra"
+                onclick="window.location.href='product-details.html?img=img/caps/caven-cap-dark-green.webp&title=كاب محجر زيتي'"
+                style="cursor: pointer;">
+                <div class="product-image-box">
+                    <button class="wishlist-btn" onclick="event.stopPropagation();"><i
+                            class="far fa-heart"></i></button>
+                    <img src="img/caps/caven-cap-dark-green.webp" alt="كاب محجر زيتي">
+                </div>
+                <div class="product-info">
+                    <h3>كاب محجر زيتي</h3>
+                    <div class="color-options">
+                        <span class="color-dot" style="background-color: #013220;"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card sold-out-card rotator-extra"
+                onclick="window.location.href='product-details.html?img=img/caps/caven-cap-light-blue.webp&title=كاب محجر سماوي'"
+                style="cursor: pointer;">
+                <div class="product-image-box">
+                    <button class="wishlist-btn" onclick="event.stopPropagation();"><i
+                            class="far fa-heart"></i></button>
+                    <span class="sold-out-badge">قريبا</span>
+                    <img src="img/caps/caven-cap-light-blue.webp" alt="كاب محجر سماوي">
+                </div>
+                <div class="product-info">
+                    <h3>كاب محجر سماوي</h3>
+                    <div class="color-options">
+                        <span class="color-dot" style="background-color: #ADD8E6;"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card sold-out-card rotator-extra"
+                onclick="window.location.href='product-details.html?img=img/caps/caven-cap-purple.webp&title=كاب محجر بنفسجي'"
+                style="cursor: pointer;">
+                <div class="product-image-box">
+                    <button class="wishlist-btn" onclick="event.stopPropagation();"><i
+                            class="far fa-heart"></i></button>
+                    <span class="sold-out-badge">قريبا</span>
+                    <img src="img/caps/caven-cap-purple.webp" alt="كاب محجر بنفسجي">
+                </div>
+                <div class="product-info">
+                    <h3>كاب محجر بنفسجي</h3>
+                    <div class="color-options">
+                        <span class="color-dot" style="background-color: #800080;"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card sold-out-card rotator-extra"
+                onclick="window.location.href='product-details.html?img=img/caps/caven-cap-royal-blue.webp&title=كاب ازرق ملكي'"
+                style="cursor: pointer;">
+                <div class="product-image-box">
+                    <button class="wishlist-btn" onclick="event.stopPropagation();"><i
+                            class="far fa-heart"></i></button>
+                    <span class="sold-out-badge">قريبا</span>
+                    <img src="img/caps/caven-cap-royal-blue.webp" alt="كاب ازرق ملكي">
+                </div>
+                <div class="product-info">
+                    <h3>كاب ازرق ملكي</h3>
+                    <div class="color-options">
+                        <span class="color-dot" style="background-color: #4169E1;"></span>
+                    </div>
+                </div>
+            </div>
         </div>
+        <script>
+            // New caps (from caps-data.js) join the caps rotator on mobile
+            (function () {
+                const grid = document.getElementById('latest-caps');
+                window.CAP_CARDS.forEach(c => {
+                    grid.insertAdjacentHTML('beforeend', `
+            <div class="product-card rotator-extra"
+                onclick="window.location.href='product-details.html?img=${c.image}&title=${encodeURIComponent(c.title)}'"
+                style="cursor: pointer;">
+                <div class="product-image-box">
+                    <button class="wishlist-btn" onclick="event.stopPropagation();"><i
+                            class="far fa-heart"></i></button>
+                    <img src="${c.image}" alt="${c.title}" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>${c.title}</h3>
+                    <div class="color-options">
+                        <span class="color-dot" style="background-color: ${c.hex};"></span>
+                    </div>
+                </div>
+            </div>`);
+                });
+            })();
+        </script>
 
         <button class="btn-secondary" onclick="window.location.href='products.html'">عرض جميع المنتجات <i
+                class="fas fa-arrow-left"></i></button>
+    </section>
+
+    <!-- Accessories Section -->
+    <section class="latest-products accessories-section">
+        <div class="section-header">
+            <h2>اكسسوارات</h2>
+        </div>
+
+        <div class="products-grid featured-rotator">
+            <div class="product-card"
+                onclick="window.location.href='product-details.html?img=img/accessories/268197.jpg&title=سلسلة ذهبي بحجر أسود'"
+                style="cursor: pointer;">
+                <div class="product-image-box">
+                    <button class="wishlist-btn" onclick="event.stopPropagation();"><i
+                            class="far fa-heart"></i></button>
+                    <img src="img/accessories/268197.jpg" alt="سلسلة ذهبي بحجر أسود" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>سلسلة ذهبي بحجر أسود</h3>
+                </div>
+            </div>
+
+            <div class="product-card"
+                onclick="window.location.href='product-details.html?img=img/accessories/268206.jpg&title=سلسلة نمر فضي'"
+                style="cursor: pointer;">
+                <div class="product-image-box">
+                    <button class="wishlist-btn" onclick="event.stopPropagation();"><i
+                            class="far fa-heart"></i></button>
+                    <img src="img/accessories/268206.jpg" alt="سلسلة نمر فضي" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>سلسلة نمر فضي</h3>
+                </div>
+            </div>
+
+            <div class="product-card"
+                onclick="window.location.href='product-details.html?img=img/accessories/268212.jpg&title=انسيال برسيمة أسود'"
+                style="cursor: pointer;">
+                <div class="product-image-box">
+                    <button class="wishlist-btn" onclick="event.stopPropagation();"><i
+                            class="far fa-heart"></i></button>
+                    <img src="img/accessories/268212.jpg" alt="انسيال برسيمة أسود" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>انسيال برسيمة أسود</h3>
+                </div>
+            </div>
+
+            <div class="product-card"
+                onclick="window.location.href='product-details.html?img=img/accessories/268223.jpg&title=سلسلة نمر ذهبي'"
+                style="cursor: pointer;">
+                <div class="product-image-box">
+                    <button class="wishlist-btn" onclick="event.stopPropagation();"><i
+                            class="far fa-heart"></i></button>
+                    <img src="img/accessories/268223.jpg" alt="سلسلة نمر ذهبي" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>سلسلة نمر ذهبي</h3>
+                </div>
+            </div>
+
+            <div class="product-card rotator-extra"
+                onclick="window.location.href='product-details.html?img=img/accessories/268176.jpg&title=سلسلة كوبي سوداء مرصعة'"
+                style="cursor: pointer;">
+                <div class="product-image-box">
+                    <button class="wishlist-btn" onclick="event.stopPropagation();"><i
+                            class="far fa-heart"></i></button>
+                    <img src="img/accessories/268176.jpg" alt="سلسلة كوبي سوداء مرصعة" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>سلسلة كوبي سوداء مرصعة</h3>
+                </div>
+            </div>
+
+            <div class="product-card rotator-extra"
+                onclick="window.location.href='product-details.html?img=img/accessories/268182.jpg&title=انسيال ذهبي برسيمة زركون'"
+                style="cursor: pointer;">
+                <div class="product-image-box">
+                    <button class="wishlist-btn" onclick="event.stopPropagation();"><i
+                            class="far fa-heart"></i></button>
+                    <img src="img/accessories/268182.jpg" alt="انسيال ذهبي برسيمة زركون" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>انسيال ذهبي برسيمة زركون</h3>
+                </div>
+            </div>
+
+            <div class="product-card rotator-extra"
+                onclick="window.location.href='product-details.html?img=img/accessories/268185.jpg&title=انسيال برسيمة فضي'"
+                style="cursor: pointer;">
+                <div class="product-image-box">
+                    <button class="wishlist-btn" onclick="event.stopPropagation();"><i
+                            class="far fa-heart"></i></button>
+                    <img src="img/accessories/268185.jpg" alt="انسيال برسيمة فضي" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>انسيال برسيمة فضي</h3>
+                </div>
+            </div>
+
+            <div class="product-card rotator-extra"
+                onclick="window.location.href='product-details.html?img=img/accessories/268188.jpg&title=سلسلة سوداء مزدوجة'"
+                style="cursor: pointer;">
+                <div class="product-image-box">
+                    <button class="wishlist-btn" onclick="event.stopPropagation();"><i
+                            class="far fa-heart"></i></button>
+                    <img src="img/accessories/268188.jpg" alt="سلسلة سوداء مزدوجة" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>سلسلة سوداء مزدوجة</h3>
+                </div>
+            </div>
+
+            <div class="product-card rotator-extra"
+                onclick="window.location.href='product-details.html?img=img/accessories/268191.jpg&title=انسيال برسيمة ذهبي مرصع'"
+                style="cursor: pointer;">
+                <div class="product-image-box">
+                    <button class="wishlist-btn" onclick="event.stopPropagation();"><i
+                            class="far fa-heart"></i></button>
+                    <img src="img/accessories/268191.jpg" alt="انسيال برسيمة ذهبي مرصع" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>انسيال برسيمة ذهبي مرصع</h3>
+                </div>
+            </div>
+
+            <div class="product-card rotator-extra"
+                onclick="window.location.href='product-details.html?img=img/accessories/268194.jpg&title=انسيال ذهبي بدلايات صدف'"
+                style="cursor: pointer;">
+                <div class="product-image-box">
+                    <button class="wishlist-btn" onclick="event.stopPropagation();"><i
+                            class="far fa-heart"></i></button>
+                    <img src="img/accessories/268194.jpg" alt="انسيال ذهبي بدلايات صدف" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>انسيال ذهبي بدلايات صدف</h3>
+                </div>
+            </div>
+
+            <div class="product-card rotator-extra"
+                onclick="window.location.href='product-details.html?img=img/accessories/268200.jpg&title=انسيال تنس برسيمات سوداء'"
+                style="cursor: pointer;">
+                <div class="product-image-box">
+                    <button class="wishlist-btn" onclick="event.stopPropagation();"><i
+                            class="far fa-heart"></i></button>
+                    <img src="img/accessories/268200.jpg" alt="انسيال تنس برسيمات سوداء" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>انسيال تنس برسيمات سوداء</h3>
+                </div>
+            </div>
+
+            <div class="product-card rotator-extra"
+                onclick="window.location.href='product-details.html?img=img/accessories/268203.jpg&title=انسيال ذهبي بدلايات سوداء'"
+                style="cursor: pointer;">
+                <div class="product-image-box">
+                    <button class="wishlist-btn" onclick="event.stopPropagation();"><i
+                            class="far fa-heart"></i></button>
+                    <img src="img/accessories/268203.jpg" alt="انسيال ذهبي بدلايات سوداء" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>انسيال ذهبي بدلايات سوداء</h3>
+                </div>
+            </div>
+
+            <div class="product-card rotator-extra"
+                onclick="window.location.href='product-details.html?img=img/accessories/268209.jpg&title=انسيال تنس بنمر'"
+                style="cursor: pointer;">
+                <div class="product-image-box">
+                    <button class="wishlist-btn" onclick="event.stopPropagation();"><i
+                            class="far fa-heart"></i></button>
+                    <img src="img/accessories/268209.jpg" alt="انسيال تنس بنمر" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>انسيال تنس بنمر</h3>
+                </div>
+            </div>
+
+            <div class="product-card rotator-extra"
+                onclick="window.location.href='product-details.html?img=img/accessories/268227.jpg&title=سلسلة ذهبي بدلاية زركون'"
+                style="cursor: pointer;">
+                <div class="product-image-box">
+                    <button class="wishlist-btn" onclick="event.stopPropagation();"><i
+                            class="far fa-heart"></i></button>
+                    <img src="img/accessories/268227.jpg" alt="سلسلة ذهبي بدلاية زركون" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>سلسلة ذهبي بدلاية زركون</h3>
+                </div>
+            </div>
+
+            <div class="product-card rotator-extra"
+                onclick="window.location.href='product-details.html?img=img/accessories/268231.jpg&title=انسيال برسيمة صدف أبيض'"
+                style="cursor: pointer;">
+                <div class="product-image-box">
+                    <button class="wishlist-btn" onclick="event.stopPropagation();"><i
+                            class="far fa-heart"></i></button>
+                    <img src="img/accessories/268231.jpg" alt="انسيال برسيمة صدف أبيض" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>انسيال برسيمة صدف أبيض</h3>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn-secondary" onclick="window.location.href='accessories.html'">عرض جميع الاكسسوارات <i
+                class="fas fa-arrow-left"></i></button>
+    </section>
+
+
+    <!-- Perfumes Section (built from perfumes-data.js) -->
+    <section class="latest-products accessories-section">
+        <div class="section-header">
+            <h2>العطور</h2>
+        </div>
+
+        <div class="products-grid featured-rotator" id="home-perfumes"></div>
+        <script>
+            (function () {
+                const grid = document.getElementById('home-perfumes');
+                Object.values(window.PERFUMES).forEach((p, i) => {
+                    grid.insertAdjacentHTML('beforeend', `
+            <div class="product-card${i >= 4 ? ' rotator-extra' : ''}"
+                onclick="window.location.href='product-details.html?img=${p.images[0]}&title=${encodeURIComponent(p.title)}'"
+                style="cursor: pointer;">
+                <div class="product-image-box">
+                    <button class="wishlist-btn" onclick="event.stopPropagation();"><i
+                            class="far fa-heart"></i></button>
+                    <img src="${p.images[0]}" alt="${p.title}" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>${p.title}</h3>
+                </div>
+            </div>`);
+                });
+            })();
+        </script>
+
+        <button class="btn-secondary" onclick="window.location.href='perfumes.html'">عرض جميع العطور <i
+                class="fas fa-arrow-left"></i></button>
+    </section>
+
+    <!-- Watches Section (built from watches-data.js) -->
+    <section class="latest-products accessories-section">
+        <div class="section-header">
+            <h2>الساعات</h2>
+        </div>
+
+        <div class="products-grid featured-rotator" id="home-watches"></div>
+        <script>
+            (function () {
+                const grid = document.getElementById('home-watches');
+                window.WATCH_CARDS.map(c => ({ ...c, images: [c.image] })).forEach((p, i) => {
+                    grid.insertAdjacentHTML('beforeend', `
+            <div class="product-card${i >= 4 ? ' rotator-extra' : ''}"
+                onclick="window.location.href='product-details.html?img=${p.images[0]}&title=${encodeURIComponent(p.title)}'"
+                style="cursor: pointer;">
+                <div class="product-image-box">
+                    <button class="wishlist-btn" onclick="event.stopPropagation();"><i
+                            class="far fa-heart"></i></button>
+                    <img src="${p.images[0]}" alt="${p.title}" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>${p.title}</h3>
+                </div>
+            </div>`);
+                });
+            })();
+        </script>
+
+        <button class="btn-secondary" onclick="window.location.href='watches.html'">عرض جميع الساعات <i
                 class="fas fa-arrow-left"></i></button>
     </section>
 
@@ -167,11 +547,11 @@
                 المجموعة</button>
         </div>
         <div class="banner-image">
-            <img src="img/caven-cap-burgundy.webp" alt="كاب برجاندي">
+            <img src="img/caps/caven-cap-burgundy.webp" alt="كاب برجاندي">
         </div>
     </section>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=3"></script>
 </body>
 
 </html>

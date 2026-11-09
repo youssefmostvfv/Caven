@@ -2,10 +2,10 @@ const fs = require('fs');
 
 const files = ['products.html', 'index.html'];
 const soldOutImages = [
-    'img/caven-cap-light-blue.webp',
-    'img/caven-cap-purple.webp',
-    'img/caven-cap-royal-blue.webp',
-    'img/caven-cap-sage.webp'
+    'img/caps/caven-cap-light-blue.webp',
+    'img/caps/caven-cap-purple.webp',
+    'img/caps/caven-cap-royal-blue.webp',
+    'img/caps/caven-cap-sage.webp'
 ];
 
 files.forEach(file => {

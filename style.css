@@ -145,6 +145,22 @@ body {
     z-index: 2;
 }
 
+.hero-slides {
+    display: grid;
+    width: 100%;
+    justify-items: center;
+}
+
+.hero-slides .hero-image {
+    grid-area: 1 / 1;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.hero-slides .hero-image.active {
+    opacity: 1;
+}
+
 .hero-image {
     width: 85%;
     max-width: 320px;
@@ -282,6 +298,96 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
     margin-bottom: 2rem;
+}
+
+/* Latest products: one big featured cap + rotating small ones */
+@media (max-width: 767px) {
+.products-grid.featured-rotator {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    padding: 0;
+}
+
+.featured-rotator .product-card {
+    will-change: transform;
+}
+
+.featured-rotator .product-card .product-info h3 {
+    font-size: 0.8rem;
+}
+
+.featured-rotator .product-card .wishlist-btn,
+.featured-rotator .product-card .color-options {
+    display: none;
+}
+
+.featured-rotator .product-card.featured {
+    grid-column: 1 / -1;
+}
+
+.featured-rotator .product-card.featured .product-info h3 {
+    font-size: 1.2rem;
+}
+
+.featured-rotator .product-card.featured .wishlist-btn,
+.featured-rotator .product-card.featured .color-options {
+    display: flex;
+}
+
+.featured-rotator .product-card.featured .color-options {
+    justify-content: center;
+}
+
+.featured-rotator .product-card.rot-hidden {
+    display: none;
+}
+}
+
+/* Accessories: photo fills the whole card */
+.accessories-section .product-image-box {
+    aspect-ratio: 3 / 4; /* matches the photos' shape, so nothing gets cut */
+    padding: 0;
+    background-color: #fff;
+}
+
+.accessories-section .product-image-box img {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+}
+
+.accessories-section .wishlist-btn {
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Mobile: smaller cards for the small (non-featured) accessories */
+@media (max-width: 767px) {
+    .accessories-section .product-card:not(.featured) .product-image-box {
+        aspect-ratio: 1;
+    }
+
+    .accessories-section .product-card:not(.featured) .product-image-box img {
+        object-fit: contain;
+    }
+
+    .accessories-section .product-card:not(.featured) .product-info h3 {
+        font-size: 0.7rem;
+    }
+}
+
+/* Desktop/tablet: keep the original 4-card grid */
+@media (min-width: 768px) {
+    .featured-rotator .rotator-extra {
+        display: none;
+    }
 }
 
 .product-card {
@@ -656,7 +762,8 @@ body {
     }
     
     .product-gallery, .product-info-details {
-        flex: 1;
+        flex: 1 1 0;
+        min-width: 0;
     }
 }
 
@@ -1120,3 +1227,244 @@ body {
 }
 
 
+
+/* Scrollable areas inside the page: no scrollbar, drag with the mouse like swiping on mobile */
+body * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+body *::-webkit-scrollbar {
+    display: none;
+}
+
+.is-dragging {
+    cursor: grabbing !important;
+    user-select: none;
+}
+
+.is-dragging * {
+    cursor: grabbing !important;
+}
+
+img {
+    -webkit-user-drag: none;
+}
+
+/* ===== Accessories page cards: simple & clean ===== */
+.products-page-container.accessories-section .products-grid-page {
+    gap: 1.25rem 0.9rem;
+}
+
+.products-page-container.accessories-section .product-card {
+    background: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    overflow: visible;
+    text-align: right;
+}
+
+.products-page-container.accessories-section .product-card .product-image-box {
+    aspect-ratio: 3 / 4;
+    padding: 0;
+    margin: 0 0 0.6rem;
+    border-radius: 14px;
+    background: #fff;
+    overflow: hidden;
+}
+
+.products-page-container.accessories-section .product-card .product-image-box img {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.products-page-container.accessories-section .product-card:hover .product-image-box img {
+    transform: scale(1.04);
+}
+
+.products-page-container.accessories-section .product-card .wishlist-btn {
+    display: flex;
+    top: 8px;
+    left: 8px;
+    background: none;
+    box-shadow: none;
+    color: var(--text-dark);
+}
+
+.products-page-container.accessories-section .product-card .product-info {
+    padding: 0 2px;
+}
+
+.products-page-container.accessories-section .product-card .product-info h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 1.5;
+    margin: 0 0 0.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.acc-price {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--text-dark);
+}
+
+.acc-old-price {
+    text-decoration: line-through;
+    color: #9ca3af;
+    font-weight: 400;
+    font-size: 0.8em;
+    margin-right: 6px;
+}
+
+/* Watch color variants on the product page */
+.watch-colors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.watch-color {
+    width: 76px;
+    text-decoration: none;
+    color: var(--text-dark);
+    text-align: center;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    padding: 4px;
+    background: #fff;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.watch-color:hover {
+    transform: translateY(-2px);
+}
+
+.watch-color.active {
+    border-color: var(--primary-color);
+}
+
+.watch-color img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+}
+
+.watch-color-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-top: 4px;
+    line-height: 1.3;
+}
+
+.watch-color-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    flex-shrink: 0;
+}
+
+/* ===== Watches page: smaller cards + colors of the same watch in a horizontal row ===== */
+.products-page-container.accessories-section.watches-page .products-grid-page {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-flow: row dense;
+    gap: 1rem 0.6rem;
+}
+
+@media (min-width: 768px) {
+    .products-page-container.accessories-section.watches-page .products-grid-page {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 1.5rem 1rem;
+    }
+}
+
+.products-page-container.accessories-section.watches-page .product-card .product-info h3 {
+    font-size: 0.75rem;
+}
+
+.products-page-container.accessories-section.watches-page .acc-price {
+    font-size: 0.8rem;
+}
+
+.products-page-container.accessories-section.watches-page .product-card .wishlist-btn {
+    font-size: 0.9rem;
+    top: 5px;
+    left: 5px;
+}
+
+.watch-model-row {
+    grid-column: 1 / -1;
+    min-width: 0;
+    background: #f7f7f8;
+    border-radius: 14px;
+    padding: 0.75rem 0.75rem 0.5rem;
+}
+
+.watch-model-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.6rem;
+}
+
+.watch-model-head h3 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.watch-model-head span {
+    font-size: 0.75rem;
+    color: var(--text-light);
+}
+
+.watch-model-scroll {
+    display: flex;
+    gap: 0.6rem;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    padding-bottom: 0.25rem;
+}
+
+.watch-model-scroll .product-card {
+    flex: 0 0 62%;
+    width: 62%;
+    min-width: 0;
+    scroll-snap-align: start;
+}
+
+@media (min-width: 768px) {
+    .watch-model-scroll .product-card {
+        flex-basis: 30%;
+        width: 30%;
+    }
+}
+
+.watch-model-scroll {
+    cursor: grab;
+}
+
+/* Watches page: bigger cards inside each watch box */
+.products-page-container.accessories-section.watches-page .watch-model-row .product-card .product-info h3 {
+    font-size: 0.85rem;
+}
+
+.products-page-container.accessories-section.watches-page .watch-model-row .acc-price {
+    font-size: 0.9rem;
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAVEN — كافِن | العطور</title>
+    <link rel="stylesheet" href="style.css?v=6">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="perfumes-data.js"></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="header">
+        <a href="index.html" class="logo" style="text-decoration: none;">CAVEN — كافِن</a>
+        <nav class="nav-links">
+            <a href="index.html">الرئيسية</a>
+            <a href="products.html">المنتجات</a>
+            <a href="accessories.html">الاكسسوارات</a>
+            <a href="perfumes.html" class="active">العطور</a>
+            <a href="watches.html">الساعات</a>
+            <a href="#">من نحن</a>
+        </nav>
+        <div class="header-icons">
+            <a href="index.html" class="mobile-home-icon" style="color:var(--text-dark); text-decoration:none;"><i
+                    class="fas fa-home"></i></a>
+            <i class="far fa-heart"></i>
+            <i class="fas fa-shopping-bag"></i>
+            <i class="fas fa-bars menu-toggle"></i>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="logo" style="text-decoration: none;">CAVEN</a>
+            <i class="fas fa-times close-menu"></i>
+        </div>
+        <nav class="mobile-nav-links">
+            <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
+            <a href="products.html"><i class="fas fa-th-large"></i> المنتجات</a>
+            <a href="accessories.html"><i class="fas fa-gem"></i> الاكسسوارات</a>
+            <a href="perfumes.html" class="active"><i class="fas fa-spray-can-sparkles"></i> العطور</a>
+            <a href="watches.html"><i class="far fa-clock"></i> الساعات</a>
+            <a href="#" class="mobile-cart-link"><i class="fas fa-shopping-bag"></i> سلة المشتريات</a>
+            <a href="#" class="mobile-wishlist-link"><i class="far fa-heart"></i> المفضلة</a>
+        </nav>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="breadcrumb">
+            <a href="index.html" class="breadcrumb-link">الرئيسية</a> /
+            <span class="current-page">العطور</span>
+        </div>
+        <h1>العطور</h1>
+    </section>
+
+    <!-- Perfumes Page Layout -->
+    <section class="products-page-container accessories-section">
+
+        <!-- Filters Sidebar -->
+        <aside class="filters-sidebar">
+            <div class="filter-header">
+                <h3>تصفية المنتجات</h3>
+                <i class="fas fa-chevron-down filter-mobile-toggle" style="cursor:pointer;"></i>
+            </div>
+
+            <div class="filter-body">
+                <div class="filter-group">
+                    <h4>النوع <i class="fas fa-chevron-down"></i></h4>
+                    <ul class="checkbox-list" style="display: none;">
+                        <li><input type="checkbox" id="type-musk" class="acc-filter" value="مسك"> <label
+                                for="type-musk">مسك</label></li>
+                        <li><input type="checkbox" id="type-global" class="acc-filter" value="عالمي"> <label
+                                for="type-global">عطور عالمية</label></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Perfumes Grid (built from perfumes-data.js) -->
+        <main class="products-main">
+            <div class="products-grid products-grid-page" id="perfumes-grid"></div>
+            <script>
+                (function () {
+                    const grid = document.getElementById('perfumes-grid');
+                    Object.values(window.PERFUMES).forEach(a => {
+                        const type = a.title.startsWith('مسك') ? 'مسك' : 'عالمي';
+                        grid.insertAdjacentHTML('beforeend', `
+                <div class="product-card" data-type="${type}"
+                    onclick="window.location.href='product-details.html?img=${a.images[0]}&title=${encodeURIComponent(a.title)}'"
+                    style="cursor: pointer;">
+                    <div class="product-image-box">
+                        <button class="wishlist-btn" onclick="event.stopPropagation();"><i
+                                class="far fa-heart"></i></button>
+                        <img src="${a.images[0]}" alt="${a.title}" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3>${a.title}</h3>
+                        <div class="acc-price">
+                            ${a.price} ج.م
+                            ${a.oldPrice ? `<span class="acc-old-price">${a.oldPrice} ج.م</span>` : ''}
+                        </div>
+                    </div>
+                </div>`);
+                    });
+
+                    // Type filter
+                    document.querySelectorAll('.acc-filter').forEach(cb => cb.addEventListener('change', () => {
+                        const selected = Array.from(document.querySelectorAll('.acc-filter:checked')).map(c => c.value);
+                        grid.querySelectorAll('.product-card').forEach(card => {
+                            card.style.display = (!selected.length || selected.includes(card.dataset.type)) ? '' : 'none';
+                        });
+                    }));
+                })();
+            </script>
+        </main>
+    </section>
+
+    <script src="script.js?v=3"></script>
+</body>
+
+</html>
