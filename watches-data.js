@@ -31,7 +31,7 @@ window.WATCHES = {
     },
     'rolex-oyster': {
         title: 'ساعة رولكس أويستر', type: 'men',
-        price: 150, oldPrice: null,
+        price: 320, oldPrice: null,
         description: 'ساعة رولكس بأستيك ستانلس ستيل فضي ومينا فضي لامع، تصميم كلاسيك يناسب كل الأوقات.',
         variants: [
             { id: '267642', color: 'فضي', hex: '#c0c0c0', images: ['img/watches/267642.jpg'] }
