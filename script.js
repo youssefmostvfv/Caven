@@ -454,16 +454,8 @@ document.addEventListener('DOMContentLoaded', () => {
             let totalQty = cart.reduce((sum, i) => sum + i.qty, 0);
             
             let subtotal = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
-            
-            // Recalculate discount for checkout
-            let allPrices = [];
-            cart.forEach(item => {
-                for(let i=0; i<item.qty; i++) allPrices.push(item.price);
-            });
-            let pairs = Math.floor(allPrices.length / 2);
-            let discount = pairs * 50;
-            
-            let totalVal = subtotal - discount;
+
+            let totalVal = subtotal;
 
             const formData = new FormData();
             formData.append('Product', productString);

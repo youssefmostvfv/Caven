@@ -1256,6 +1256,30 @@ img {
     gap: 1.25rem 0.9rem;
 }
 
+/* Accessories page only: 2 cards side by side on mobile, no overflow */
+#accessories-grid,
+#perfumes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+#accessories-grid .product-card,
+#perfumes-grid .product-card {
+    min-width: 0;
+}
+
+#accessories-grid .product-card .product-info h3,
+#perfumes-grid .product-card .product-info h3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (min-width: 768px) {
+    #accessories-grid,
+    #perfumes-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
 .products-page-container.accessories-section .product-card {
     background: none;
     border: none;

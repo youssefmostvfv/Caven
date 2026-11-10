@@ -7,7 +7,7 @@
 window.WATCHES = {
     'casio-square': {
         title: 'ساعة كاسيو مربعة', type: 'men',
-        price: 150, oldPrice: null,
+        price: 240, oldPrice: null,
         description: 'ساعة كاسيو كلاسيك بإطار مربع ومينا أسود، بأستيك ستانلس ستيل فضي وبيان التاريخ.',
         variants: [
             { id: '267633', color: 'فضي / أسود', hex: '#1f2937', images: ['img/watches/267633.jpg'] }
@@ -15,7 +15,7 @@ window.WATCHES = {
     },
     'rolex-daytona': {
         title: 'ساعة رولكس دايتونا', type: 'men',
-        price: 150, oldPrice: null,
+        price: 500, oldPrice: null,
         description: 'ساعة كرونوجراف بأستيك فضي وذهبي ومينا أسود بعدادات ذهبية، وإطار ذهبي مدرّج.',
         variants: [
             { id: '267636', color: 'فضي / ذهبي', hex: '#d4af37', images: ['img/watches/267636.jpg', 'img/watches/270239.jpg'] }
@@ -23,7 +23,7 @@ window.WATCHES = {
     },
     'lacoste-bracelet': {
         title: 'ساعة لاكوست', type: 'women',
-        price: 150, oldPrice: null,
+        price: 280, oldPrice: null,
         description: 'ساعة لاكوست بأستيك ستانلس ستيل فضي بتصميم أنيق، تيجي في علبة الماركة.',
         variants: [
             { id: '267641', color: 'فضي', hex: '#c0c0c0', images: ['img/watches/267641.jpg'] }
@@ -39,7 +39,7 @@ window.WATCHES = {
     },
     'tissot-chrono': {
         title: 'ساعة تيسو كرونوجراف', type: 'men',
-        price: 150, oldPrice: null,
+        price: 320, oldPrice: null,
         description: 'ساعة تيسو كرونوجراف بأستيك ستانلس ستيل فضي، بثلاث عدادات وبيان التاريخ.',
         variants: [
             { id: '267649', color: 'مينا أسود', hex: '#111827', images: ['img/watches/267649.jpg'] },
@@ -48,7 +48,7 @@ window.WATCHES = {
     },
     'women-leather-square': {
         title: 'ساعة حريمي جلد', type: 'women',
-        price: 150, oldPrice: null,
+        price: 130, oldPrice: null,
         description: 'ساعة حريمي رقيقة بإطار مربع ناعم وأستيك جلد، تصميم بسيط وأنيق للاستخدام اليومي.',
         variants: [
             { id: '267655', color: 'أسود', hex: '#111827', images: ['img/watches/267655.jpg'] },
@@ -57,7 +57,7 @@ window.WATCHES = {
     },
     'guoi-rose-set': {
         title: 'طقم ساعة روز جولد مع انسيال', type: 'women',
-        price: 150, oldPrice: null,
+        price: 200, oldPrice: null,
         description: 'طقم حريمي: ساعة بأستيك حلقات روز جولد مع انسيال مطابق.',
         variants: [
             { id: '267657', color: 'روز جولد', hex: '#b76e79', images: ['img/watches/267657.jpg'] }
@@ -65,7 +65,7 @@ window.WATCHES = {
     },
     'square-silver-set': {
         title: 'طقم ساعة مربعة مع انسيال مسمار', type: 'women',
-        price: 150, oldPrice: null,
+        price: 250, oldPrice: null,
         description: 'طقم حريمي: ساعة مربعة بأستيك ستانلس ستيل فضي مع انسيال مسمار فضي.',
         variants: [
             { id: '267659', color: 'فضي', hex: '#c0c0c0', images: ['img/watches/267659.jpg'] }
@@ -73,7 +73,7 @@ window.WATCHES = {
     },
     'rolex-women-set': {
         title: 'طقم ساعة رولكس حريمي مع انسيال', type: 'women',
-        price: 150, oldPrice: null,
+        price: 250, oldPrice: null,
         description: 'طقم حريمي: ساعة رولكس فضي بمينا أبيض مع انسيال مسمار فضي.',
         variants: [
             { id: '267661', color: 'فضي', hex: '#c0c0c0', images: ['img/watches/267661.jpg'] }
@@ -81,7 +81,7 @@ window.WATCHES = {
     },
     'casio-octagon-set': {
         title: 'طقم ساعة كاسيو مع انسيال', type: 'women',
-        price: 150, oldPrice: null,
+        price: 250, oldPrice: null,
         description: 'طقم: ساعة كاسيو بإطار مثمن وأستيك ستانلس ستيل فضي مع انسيال فضي.',
         variants: [
             { id: '267664', color: 'فضي', hex: '#c0c0c0', images: ['img/watches/267664.jpg'] }
@@ -89,7 +89,7 @@ window.WATCHES = {
     },
     'women-leather-oval': {
         title: 'ساعة حريمي بيضاوي جلد', type: 'women',
-        price: 150, oldPrice: null,
+        price: 130, oldPrice: null,
         description: 'ساعة حريمي بإطار بيضاوي وأرقام رومانية وأستيك جلد رفيع، تصميم كلاسيك راقي.',
         variants: [
             { id: '267666', color: 'أسود', hex: '#111827', images: ['img/watches/267666.jpg'] },
@@ -98,7 +98,7 @@ window.WATCHES = {
     },
     'rolex-fluted': {
         title: 'ساعة رولكس ديت جست', type: 'men',
-        price: 150, oldPrice: null,
+        price: 280, oldPrice: null,
         description: 'ساعة رولكس بإطار مخدد وأستيك ستانلس ستيل فضي، مع بيان اليوم والتاريخ.',
         variants: [
             { id: '267668', color: 'مينا أسود', hex: '#111827', images: ['img/watches/267668.jpg'] },
@@ -108,7 +108,7 @@ window.WATCHES = {
     },
     'hilfiger': {
         title: 'ساعة تومي هيلفيجر', type: 'men',
-        price: 150, oldPrice: null,
+        price: 400, oldPrice: null,
         description: 'ساعة تومي هيلفيجر بأستيك ستانلس ستيل فضي، مع بيان اليوم والتاريخ وعقرب ثواني أحمر.',
         variants: [
             { id: '267676', color: 'مينا أزرق', hex: '#1e40af', images: ['img/watches/267676.jpg'] },
@@ -118,7 +118,7 @@ window.WATCHES = {
     },
     'oval-bangle-set': {
         title: 'طقم ساعة بيضاوي مع انسيال مسمار', type: 'women',
-        price: 150, oldPrice: null,
+        price: 180, oldPrice: null,
         description: 'طقم حريمي: ساعة بيضاوي بأستيك غوايشة وأرقام رومانية مع انسيال مسمار مطابق.',
         variants: [
             { id: '267682', color: 'فضي', hex: '#c0c0c0', images: ['img/watches/267682.jpg'] },
@@ -135,7 +135,7 @@ window.WATCHES = {
     },
     'sweston-round': {
         title: 'ساعة سويستون ذهبي', type: 'men',
-        price: 150, oldPrice: null,
+        price: 400, oldPrice: null,
         description: 'ساعة سويستون بأستيك ذهبي وإطار دائري، تيجي في علبة الماركة.',
         variants: [
             { id: '270172', color: 'مينا أبيض', hex: '#f3f4f6', images: ['img/watches/270172.jpg'] },
@@ -144,7 +144,7 @@ window.WATCHES = {
     },
     'sweston-rect': {
         title: 'ساعة سويستون مستطيلة ذهبي', type: 'men',
-        price: 150, oldPrice: null,
+        price: 400, oldPrice: null,
         description: 'ساعة سويستون بإطار مستطيل وأستيك ذهبي، تصميم كلاسيك فخم.',
         variants: [
             { id: '270174', color: 'مينا أبيض', hex: '#f3f4f6', images: ['img/watches/270174.jpg'] },
@@ -153,7 +153,7 @@ window.WATCHES = {
     },
     'rolex-leather-set': {
         title: 'طقم ساعة رولكس جلد مع انسيال', type: 'men',
-        price: 150, oldPrice: null,
+        price: 350, oldPrice: null,
         description: 'طقم رجالي: ساعة رولكس بأستيك جلد شامواه وبيان التاريخ، مع انسيال فضي.',
         variants: [
             { id: '270185', color: 'بني / مينا أسود', hex: '#5b4040', images: ['img/watches/270185.jpg'] },
@@ -164,7 +164,7 @@ window.WATCHES = {
     },
     'rolex-boxed': {
         title: 'ساعة رولكس بالعلبة', type: 'men',
-        price: 150, oldPrice: null,
+        price: 280, oldPrice: null,
         description: 'ساعة رولكس بأستيك ستانلس ستيل فضي، تيجي في العلبة الخضرا.',
         variants: [
             { id: '270363', color: 'مينا أبيض', hex: '#f3f4f6', images: ['img/watches/270363.jpg'] },
@@ -173,7 +173,7 @@ window.WATCHES = {
     },
     'rolex-day-date': {
         title: 'ساعة رولكس داي ديت', type: 'men',
-        price: 150, oldPrice: null,
+        price: 300, oldPrice: null,
         description: 'ساعة رولكس بأستيك ستانلس ستيل فضي، مع بيان اليوم والتاريخ.',
         variants: [
             { id: '270373', color: 'مينا أسود', hex: '#111827', images: ['img/watches/270373.jpg'] },

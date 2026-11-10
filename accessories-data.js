@@ -4,31 +4,31 @@
 window.ACCESSORIES = {
     '268197': {
         title: 'سلسلة ذهبي بحجر أسود',
-        price: 150, oldPrice: null,
+        price: 200, oldPrice: null,
         images: ['img/accessories/268197.jpg', 'img/accessories/268179.jpg'],
         description: 'سلسلة ستانلس ستيل بلون ذهبي بطول 60 سم، بدلاية مربعة بحجر أسود رخامي مقاس 1.6 × 1.6 سم. مقاومة للصدأ وتغيّر اللون، ومناسبة للاستخدام اليومي.'
     },
     '268206': {
         title: 'سلسلة نمر فضي',
-        price: 150, oldPrice: null,
+        price: 400, oldPrice: null,
         images: ['img/accessories/268206.jpg'],
         description: 'سلسلة ستانلس ستيل فضي بدلاية رأس نمر مرصعة بالزركون وعيون خضراء. قطعة جريئة بتلفت النظر وبتكمّل أي ستايل.'
     },
     '268212': {
         title: 'انسيال برسيمة أسود',
-        price: 150, oldPrice: null,
+        price: 220, oldPrice: null,
         images: ['img/accessories/268212.jpg'],
         description: 'انسيال ستانلس ستيل ذهبي بخمس برسيمات سوداء مقاس 1.3 سم، بطول قابل للتعديل من 18 لـ 22 سم وقفل كلابس محكم.'
     },
     '268223': {
         title: 'سلسلة نمر ذهبي',
-        price: 150, oldPrice: null,
+        price: 250, oldPrice: null,
         images: ['img/accessories/268223.jpg'],
         description: 'سلسلة ستانلس ستيل ذهبي بدلاية رأس نمر مرصعة بالزركون. تصميم قوي وفخم يناسب الإطلالات الكاجوال والسهرات.'
     },
     '268176': {
         title: 'سلسلة كوبي سوداء مرصعة',
-        price: 150, oldPrice: null,
+        price: 400, oldPrice: null,
         images: ['img/accessories/268176.jpg'],
         description: 'سلسلة كوبي ستانلس ستيل سوداء بعرض 1.2 سم وطول 60 سم، متاحة سادة أو مرصعة بالكامل بالزركون اللامع.'
     },
@@ -40,13 +40,13 @@ window.ACCESSORIES = {
     },
     '268185': {
         title: 'انسيال برسيمة فضي',
-        price: 150, oldPrice: null,
+        price: 350, oldPrice: null,
         images: ['img/accessories/268185.jpg'],
         description: 'انسيال فضي بطول 20 سم مكوّن من برسيمات مرصعة بالكامل بالزركون مقاس 1.2 سم، بقفل معدني محكم.'
     },
     '268188': {
         title: 'سلسلة سوداء مزدوجة',
-        price: 150, oldPrice: null,
+        price: 250, oldPrice: null,
         images: ['img/accessories/268188.jpg'],
         description: 'سلسلة ستانلس ستيل سوداء بطبقتين بطول 60 سم، بدلاية بار 4 سم بحجر زركون مربع. ستايل عصري وبسيط.'
     },
@@ -64,31 +64,31 @@ window.ACCESSORIES = {
     },
     '268200': {
         title: 'انسيال تنس برسيمات سوداء',
-        price: 150, oldPrice: null,
+        price: 130, oldPrice: null,
         images: ['img/accessories/268200.jpg'],
         description: 'انسيال تنس ذهبي مرصع بالزركون بثلاث برسيمات سوداء، تصميم ناعم وأنيق للاستخدام اليومي.'
     },
     '268203': {
         title: 'انسيال ذهبي بدلايات سوداء',
-        price: 150, oldPrice: null,
+        price: 250, oldPrice: null,
         images: ['img/accessories/268203.jpg', 'img/accessories/268220.jpg'],
         description: 'انسيال ستانلس ستيل ذهبي بطول 20 سم بخمس دلايات دائرية مقاس 1.2 سم بين الذهبي والأسود.'
     },
     '268209': {
         title: 'انسيال تنس بنمر',
-        price: 150, oldPrice: null,
+        price: 180, oldPrice: null,
         images: ['img/accessories/268209.jpg'],
         description: 'انسيال تنس ذهبي مرصع بالزركون يتوسطه رأس نمر بعيون خضراء، بقفل أمان محكم.'
     },
     '268227': {
         title: 'سلسلة ذهبي بدلاية زركون',
-        price: 150, oldPrice: null,
+        price: 400, oldPrice: null,
         images: ['img/accessories/268227.jpg'],
         description: 'سلسلة ستانلس ستيل ذهبي رفيعة بطول 45 سم، بدلاية مرصعة بالزركون مقاس 2 × 0.5 سم وقفل كلابس.'
     },
     '268231': {
         title: 'انسيال برسيمة صدف أبيض',
-        price: 150, oldPrice: null,
+        price: 200, oldPrice: null,
         images: ['img/accessories/268231.jpg'],
         description: 'انسيال ستانلس ستيل ذهبي بطول 20 سم بخمس برسيمات صدف أبيض مقاس 1.3 سم بفص زركون، مع سلسلة إطالة 3.5 سم.'
     }
