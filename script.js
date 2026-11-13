@@ -438,6 +438,52 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Full-screen order loader: dark backdrop, spinning ring around the CAVEN logo
+    function getOrderOverlay() {
+        let overlay = document.getElementById('order-overlay');
+        if (overlay) return overlay;
+        overlay = document.createElement('div');
+        overlay.id = 'order-overlay';
+        overlay.setAttribute('role', 'status');
+        overlay.setAttribute('aria-live', 'polite');
+        overlay.innerHTML = `
+            <div class="order-overlay-box">
+                <div class="order-logo-wrap">
+                    <span class="order-ring"></span>
+                    <span class="order-logo">CAVEN</span>
+                    <span class="order-check"><i class="fas fa-check"></i></span>
+                </div>
+                <p class="order-overlay-title"></p>
+                <p class="order-overlay-sub"></p>
+                <button type="button" class="btn-primary order-overlay-btn">تمام</button>
+            </div>`;
+        overlay.querySelector('.order-overlay-btn').addEventListener('click', hideOrderOverlay);
+        document.body.appendChild(overlay);
+        return overlay;
+    }
+
+    function showOrderLoader() {
+        const overlay = getOrderOverlay();
+        overlay.className = 'is-loading';
+        overlay.querySelector('.order-overlay-title').innerText = 'جاري تأكيد طلبك...';
+        overlay.querySelector('.order-overlay-sub').innerText = 'ثواني بس';
+        requestAnimationFrame(() => overlay.classList.add('is-visible'));
+    }
+
+    function showOrderResult(ok) {
+        const overlay = getOrderOverlay();
+        overlay.className = 'is-visible ' + (ok ? 'is-success' : 'is-error');
+        overlay.querySelector('.order-overlay-title').innerText = ok ? 'تم تأكيد طلبك بنجاح!' : 'حصلت مشكلة في إرسال الطلب';
+        overlay.querySelector('.order-overlay-sub').innerText = ok ? 'هنتواصل معاك قريب جدًا' : 'اتأكد من النت وحاول تاني';
+        overlay.querySelector('.order-check i').className = ok ? 'fas fa-check' : 'fas fa-xmark';
+        if (ok) setTimeout(hideOrderOverlay, 3500);
+    }
+
+    function hideOrderOverlay() {
+        const overlay = document.getElementById('order-overlay');
+        if (overlay) overlay.classList.remove('is-visible');
+    }
+
     // Checkout Submit Logic
     if(globalCheckoutForm) {
         globalCheckoutForm.addEventListener('submit', (e) => {
@@ -467,20 +513,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const scriptURL = 'https://script.google.com/macros/s/AKfycbwot93789MT4NUFXBaxvGtmK3GSc-sJ2loUFJ5UWqwVcS01hnrAbzWhHBr2ezbJPu6j/exec';
 
+            showOrderLoader();
+
             fetch(scriptURL, { method: 'POST', body: formData})
             .then(response => {
-                alert('تم تأكيد طلبك بنجاح! سنتواصل معك قريباً.');
                 cart = [];
                 saveCart();
                 closeCart();
                 globalCheckoutForm.reset();
                 submitBtn.innerText = 'تأكيد الطلب';
                 submitBtn.disabled = false;
+                showOrderResult(true);
             })
             .catch(error => {
-                alert('حدث خطأ أثناء إرسال الطلب، حاول مرة أخرى.');
                 submitBtn.innerText = 'تأكيد الطلب';
                 submitBtn.disabled = false;
+                showOrderResult(false);
             });
         });
     }

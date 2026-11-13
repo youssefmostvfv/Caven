@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CAVEN — كافِن | الساعات</title>
-    <link rel="stylesheet" href="style.css?v=6">
+    <link rel="stylesheet" href="style.css?v=8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="watches-data.js?v=p320oy"></script>
+    <script src="watches-data.js?v=asw1"></script>
 </head>
 
 <body>
@@ -130,10 +130,22 @@
                     }));
                 })();
             </script>
+            <script>
+                /* Random product order on every visit */
+                (function () {
+                    const grid = document.getElementById('watches-grid');
+                    const items = Array.from(grid.children).filter(el => el.matches('.product-card, .watch-model-row'));
+                    for (let i = items.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [items[i], items[j]] = [items[j], items[i]];
+                    }
+                    items.forEach(el => grid.appendChild(el));
+                })();
+            </script>
         </main>
     </section>
 
-    <script src="script.js?v=4"></script>
+    <script src="script.js?v=5"></script>
 </body>
 
 </html>

@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CAVEN — كافِن | الاكسسوارات</title>
-    <link rel="stylesheet" href="style.css?v=7">
+    <link rel="stylesheet" href="style.css?v=8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="accessories-data.js?v=p320oy"></script>
+    <script src="accessories-data.js?v=asw1"></script>
 </head>
 
 <body>
@@ -78,6 +78,12 @@
                                 for="type-necklace">سلاسل</label></li>
                         <li><input type="checkbox" id="type-bracelet" class="acc-filter" value="انسيال"> <label
                                 for="type-bracelet">انسيالات</label></li>
+                        <li><input type="checkbox" id="type-set" class="acc-filter" value="طقم"> <label
+                                for="type-set">أطقم</label></li>
+                        <li><input type="checkbox" id="type-ring" class="acc-filter" value="خاتم"> <label
+                                for="type-ring">خواتم</label></li>
+                        <li><input type="checkbox" id="type-earring" class="acc-filter" value="حلق"> <label
+                                for="type-earring">حلقان</label></li>
                     </ul>
                 </div>
             </div>
@@ -90,7 +96,7 @@
                 (function () {
                     const grid = document.getElementById('accessories-grid');
                     Object.values(window.ACCESSORIES).forEach(a => {
-                        const type = a.title.startsWith('سلسلة') ? 'سلسلة' : 'انسيال';
+                        const type = a.title.startsWith('سلسلة') ? 'سلسلة' : a.title.startsWith('خاتم') ? 'خاتم' : a.title.startsWith('حلق') ? 'حلق' : a.title.startsWith('طقم') ? 'طقم' : 'انسيال';
                         grid.insertAdjacentHTML('beforeend', `
                 <div class="product-card" data-type="${type}"
                     onclick="window.location.href='product-details.html?img=${a.images[0]}&title=${encodeURIComponent(a.title)}'"
@@ -119,10 +125,22 @@
                     }));
                 })();
             </script>
+            <script>
+                /* Random product order on every visit */
+                (function () {
+                    const grid = document.getElementById('accessories-grid');
+                    const items = Array.from(grid.children).filter(el => el.matches('.product-card, .watch-model-row'));
+                    for (let i = items.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [items[i], items[j]] = [items[j], items[i]];
+                    }
+                    items.forEach(el => grid.appendChild(el));
+                })();
+            </script>
         </main>
     </section>
 
-    <script src="script.js?v=4"></script>
+    <script src="script.js?v=5"></script>
 </body>
 
 </html>

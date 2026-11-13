@@ -56,33 +56,33 @@ window.WATCHES = {
         ]
     },
     'guoi-rose-set': {
-        title: 'طقم ساعة روز جولد مع انسيال', type: 'women',
+        title: 'طقم ساعة روز جولد مع اسورة', type: 'women',
         price: 200, oldPrice: null,
-        description: 'طقم حريمي: ساعة بأستيك حلقات روز جولد مع انسيال مطابق.',
+        description: 'طقم حريمي: ساعة بأستيك حلقات روز جولد مع اسورة مطابقة.',
         variants: [
             { id: '267657', color: 'روز جولد', hex: '#b76e79', images: ['img/watches/267657.jpg'] }
         ]
     },
     'square-silver-set': {
-        title: 'طقم ساعة مربعة مع انسيال مسمار', type: 'women',
+        title: 'طقم ساعة مربعة مع اسورة مسمار', type: 'women',
         price: 250, oldPrice: null,
-        description: 'طقم حريمي: ساعة مربعة بأستيك ستانلس ستيل فضي مع انسيال مسمار فضي.',
+        description: 'طقم حريمي: ساعة مربعة بأستيك ستانلس ستيل فضي مع اسورة مسمار فضي.',
         variants: [
             { id: '267659', color: 'فضي', hex: '#c0c0c0', images: ['img/watches/267659.jpg'] }
         ]
     },
     'rolex-women-set': {
-        title: 'طقم ساعة رولكس حريمي مع انسيال', type: 'women',
+        title: 'طقم ساعة رولكس حريمي مع اسورة', type: 'women',
         price: 250, oldPrice: null,
-        description: 'طقم حريمي: ساعة رولكس فضي بمينا أبيض مع انسيال مسمار فضي.',
+        description: 'طقم حريمي: ساعة رولكس فضي بمينا أبيض مع اسورة مسمار فضي.',
         variants: [
             { id: '267661', color: 'فضي', hex: '#c0c0c0', images: ['img/watches/267661.jpg'] }
         ]
     },
     'casio-octagon-set': {
-        title: 'طقم ساعة كاسيو مع انسيال', type: 'women',
+        title: 'طقم ساعة كاسيو مع اسورة', type: 'women',
         price: 250, oldPrice: null,
-        description: 'طقم: ساعة كاسيو بإطار مثمن وأستيك ستانلس ستيل فضي مع انسيال فضي.',
+        description: 'طقم: ساعة كاسيو بإطار مثمن وأستيك ستانلس ستيل فضي مع اسورة فضي.',
         variants: [
             { id: '267664', color: 'فضي', hex: '#c0c0c0', images: ['img/watches/267664.jpg'] }
         ]
@@ -117,18 +117,18 @@ window.WATCHES = {
         ]
     },
     'oval-bangle-set': {
-        title: 'طقم ساعة بيضاوي مع انسيال مسمار', type: 'women',
+        title: 'طقم ساعة بيضاوي مع اسورة مسمار', type: 'women',
         price: 180, oldPrice: null,
-        description: 'طقم حريمي: ساعة بيضاوي بأستيك غوايشة وأرقام رومانية مع انسيال مسمار مطابق.',
+        description: 'طقم حريمي: ساعة بيضاوي بأستيك غوايشة وأرقام رومانية مع اسورة مسمار مطابقة.',
         variants: [
             { id: '267682', color: 'فضي', hex: '#c0c0c0', images: ['img/watches/267682.jpg'] },
             { id: '267689', color: 'ذهبي', hex: '#d4af37', images: ['img/watches/267689.jpg'] }
         ]
     },
     'gold-trio-set': {
-        title: 'طقم ساعة ذهبي مع انسيالين', type: 'women',
+        title: 'طقم ساعة صغيرة ذهبي مع اسورة وانسيال', type: 'women',
         price: 150, oldPrice: null,
-        description: 'طقم حريمي ذهبي: ساعة صغيرة مع انسيال مسمار وانسيال مبروم.',
+        description: 'طقم حريمي ذهبي: ساعة صغيرة مع اسورة مسمار وانسيال مبروم.',
         variants: [
             { id: '267684', color: 'ذهبي', hex: '#d4af37', images: ['img/watches/267684.jpg'] }
         ]
@@ -178,6 +178,49 @@ window.WATCHES = {
         variants: [
             { id: '270373', color: 'مينا أسود', hex: '#111827', images: ['img/watches/270373.jpg'] },
             { id: '270374', color: 'مينا فضي', hex: '#e5e7eb', images: ['img/watches/270374.jpg'] }
+        ]
+    },
+    'women-datejust': {
+        title: 'ساعة رولكس ديت جست حريمي', type: 'women',
+        price: 200, oldPrice: null,
+        description: 'ساعة رولكس ديت جست حريمي بأستيك ستانلس ستيل، تصميم كلاسيكي راقي يليق على كل لبس.',
+        variants: [
+            { id: 'w-datejust-twotone-green', color: 'فضي ذهبي - مينا أخضر', hex: '#14532d', images: ['img/watches/w-datejust-twotone-green.jpg'] },
+            { id: 'w-datejust-twotone-white', color: 'فضي ذهبي - مينا أبيض', hex: '#d4af37', images: ['img/watches/w-datejust-twotone-white.jpg'] },
+            { id: 'w-datejust-silver', color: 'فضي بإطار زركون', hex: '#e5e7eb', images: ['img/watches/w-datejust-silver.jpg', 'img/watches/w-datejust-silver-2.jpg', 'img/watches/w-datejust-silver-3.jpg'] }
+        ]
+    },
+    'women-rolex-bangle-set': {
+        title: 'طقم ساعة رولكس ذهبي مع اسورة', type: 'women',
+        price: 210, oldPrice: null,
+        description: 'طقم حريمي: ساعة رولكس بأستيك ذهبي مع اسورة ذهبي منقوشة مطابقة.',
+        variants: [
+            { id: 'w-rolex-set-gold', color: 'مينا ذهبي', hex: '#d4af37', images: ['img/watches/w-rolex-set-gold.jpg'] },
+            { id: 'w-rolex-set-silver', color: 'مينا فضي', hex: '#e5e7eb', images: ['img/watches/w-rolex-set-silver.jpg'] }
+        ]
+    },
+    'women-round-set3': {
+        title: 'طقم ساعة دائرية ذهبي مع اسورة وانسيال', type: 'women',
+        price: 230, oldPrice: null,
+        description: 'طقم حريمي ذهبي من 3 قطع: ساعة بإطار دائري، وانسيال مبروم، واسورة منقوشة.',
+        variants: [
+            { id: 'w-round-set3-gold', color: 'ذهبي', hex: '#d4af37', images: ['img/watches/w-round-set3-gold.jpg'] }
+        ]
+    },
+    'women-square-set3-black': {
+        title: 'طقم ساعة مربعة مينا أسود مع اسورة وانسيال', type: 'women',
+        price: 260, oldPrice: null,
+        description: 'طقم حريمي ذهبي من 3 قطع: ساعة مربعة بمينا أسود، وانسيال مبروم، واسورة منقوشة.',
+        variants: [
+            { id: 'w-square-set3-black', color: 'مينا أسود', hex: '#111827', images: ['img/watches/w-square-set3-black.jpg'] }
+        ]
+    },
+    'women-square-set3-cream': {
+        title: 'طقم ساعة مربعة مينا بيج مع اسورة وانسيال', type: 'women',
+        price: 250, oldPrice: null,
+        description: 'طقم حريمي ذهبي من 3 قطع: ساعة بإطار مربع ناعم ومينا بيج، وانسيال مبروم، واسورة منقوشة.',
+        variants: [
+            { id: 'w-square-set3-cream', color: 'مينا بيج', hex: '#e8dcc0', images: ['img/watches/w-square-set3-cream.jpg', 'img/watches/w-square-set3-cream-2.jpg'] }
         ]
     }
 };

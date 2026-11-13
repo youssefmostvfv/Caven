@@ -91,5 +91,83 @@ window.ACCESSORIES = {
         price: 200, oldPrice: null,
         images: ['img/accessories/268231.jpg'],
         description: 'انسيال ستانلس ستيل ذهبي بطول 20 سم بخمس برسيمات صدف أبيض مقاس 1.3 سم بفص زركون، مع سلسلة إطالة 3.5 سم.'
+    },
+    'set-clover-green': {
+        title: 'طقم برسيمة أخضر (سلسلة + انسيال)',
+        price: 85, oldPrice: null,
+        images: ['img/accessories/set-clover-green.jpg'],
+        description: 'طقم ذهبي من سلسلة وانسيال ببرسيمات خضراء، تصميم أنيق مناسب للخروجات والمناسبات.'
+    },
+    'set-clover-black': {
+        title: 'طقم برسيمة أسود (سلسلة + انسيال)',
+        price: 85, oldPrice: null,
+        images: ['img/accessories/set-clover-black.jpg'],
+        description: 'طقم ذهبي من سلسلة وانسيال ببرسيمات سوداء، تصميم كلاسيكي يليق على أي لبس.'
+    },
+    'set-clover-gold': {
+        title: 'طقم برسيمة ذهبي (سلسلة + انسيال)',
+        price: 85, oldPrice: null,
+        images: ['img/accessories/set-clover-gold.jpg'],
+        description: 'طقم ذهبي بالكامل من سلسلة وانسيال ببرسيمات ذهبية، شكل ناعم وراقي.'
+    },
+    'set-clover-white': {
+        title: 'طقم برسيمة صدف أبيض (سلسلة + انسيال)',
+        price: 85, oldPrice: null,
+        images: ['img/accessories/set-clover-white.jpg'],
+        description: 'طقم ذهبي من سلسلة وانسيال ببرسيمات صدف أبيض، تصميم هادي وأنيق.'
+    },
+    'set-swan-pink': {
+        title: 'طقم بجعة وردي (سلسلة + انسيال)',
+        price: 130, oldPrice: null,
+        images: ['img/accessories/set-swan-pink.jpg'],
+        description: 'طقم ذهبي من سلسلة بدلاية بجعة مرصعة بزركون وردي، مع انسيال بفصوص وردي متناسقة.'
+    },
+    'ring-coin': {
+        title: 'خاتم عملة ذهبي',
+        price: 55, oldPrice: null,
+        images: ['img/accessories/ring-coin.jpg'],
+        description: 'خاتم ذهبي بتصميم عملة كلاسيكية منقوشة، شكل مميز وجريء.'
+    },
+    'ring-zircon-circle': {
+        title: 'خاتم دائرة زركون',
+        price: 80, oldPrice: null,
+        images: ['img/accessories/ring-zircon-circle.jpg'],
+        description: 'خاتم ذهبي بتصميم دائري مرصع بفصوص زركون لامعة، يدي لمعة راقية لإيدك.'
+    },
+    'ring-finger-chain': {
+        title: 'خاتم بسلسلة زركون',
+        price: 130, oldPrice: null,
+        images: ['img/accessories/ring-finger-chain.jpg'],
+        description: 'خاتمين ذهبي متوصلين بسلسلة رقيقة ودلايات زركون صغيرة، تصميم ناعم ومختلف.'
+    },
+    'ring-layered': {
+        title: 'خاتم طبقات زركون',
+        price: 140, oldPrice: null,
+        images: ['img/accessories/ring-layered.jpg'],
+        description: 'خاتم ذهبي عريض بطبقتين، طبقة سادة وطبقة مرصعة بالزركون، شكل فخم وعصري.'
+    },
+    'bangle-gold': {
+        title: 'اسورة ذهبي منقوشة',
+        price: 45, oldPrice: null,
+        images: ['img/accessories/bangle-gold.jpg'],
+        description: 'اسورة ذهبي منقوشة بتصميم مسامير، تتلبس لوحدها أو مع ساعة.'
+    },
+    'bracelet-zircon-flowers': {
+        title: 'انسيال وردات زركون',
+        price: 110, oldPrice: null,
+        images: ['img/accessories/bracelet-zircon-flowers.jpg'],
+        description: 'انسيال ذهبي رقيق بوردات مرصعة بالزركون وقلب في النص، شكل ناعم ولامع.'
+    },
+    'hand-chain': {
+        title: 'انسيال بخاتم (سلسلة إيد)',
+        price: 90, oldPrice: null,
+        images: ['img/accessories/hand-chain.jpg'],
+        description: 'سلسلة إيد ذهبي بتوصل الانسيال بالخاتم، بفصوص زركون صغيرة على طول السلسلة.'
+    },
+    'earrings-zircon-disc': {
+        title: 'حلق كور ذهبي بدلاية زركون',
+        price: 100, oldPrice: null,
+        images: ['img/accessories/earrings-zircon-disc.jpg'],
+        description: 'حلق ذهبي طويل بكرتين ودلاية دائرية مرصعة بالزركون، مناسب للخروجات والمناسبات.'
     }
 };

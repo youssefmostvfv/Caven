@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CAVEN — كافِن | تفاصيل المنتج</title>
-    <link rel="stylesheet" href="style.css?v=6">
+    <link rel="stylesheet" href="style.css?v=8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="accessories-data.js?v=p320oy"></script>
-    <script src="perfumes-data.js?v=p320oy"></script>
-    <script src="watches-data.js?v=p320oy"></script>
-    <script src="caps-data.js?v=p320oy"></script>
+    <script src="accessories-data.js?v=asw1"></script>
+    <script src="perfumes-data.js?v=asw1"></script>
+    <script src="watches-data.js?v=asw1"></script>
+    <script src="caps-data.js?v=asw1"></script>
     <script>
         // Instant early-execution before DOM rendering to eliminate image switch lag
         (function earlyProductInit() {
@@ -32,7 +32,7 @@
                 window.__targetTitle = title;
             }
             // Accessory / perfume product? (img/accessories/<id>.jpg or img/perfume/<id>.jpg)
-            const accMatch = imgSrc && imgSrc.match(/(accessories|perfume)\/(\d+)/);
+            const accMatch = imgSrc && imgSrc.match(/(accessories|perfume)\/([\w-]+)/);
             const accData = accMatch && (accMatch[1] === 'perfume' ? window.PERFUMES : window.ACCESSORIES);
             if (accData && accData[accMatch[2]]) {
                 window.__acc = accData[accMatch[2]];
@@ -44,7 +44,7 @@
             }
             // Products with color variants (watches, new caps) — all colors of the same model shown together
             const variantSources = [
-                { re: /watches\/(\d+)/, data: window.WATCHES, others: 'ساعات أخرى:', page: ['watches.html', 'الساعات'] },
+                { re: /watches\/([\w-]+)/, data: window.WATCHES, others: 'ساعات أخرى:', page: ['watches.html', 'الساعات'] },
                 { re: /caps\/(\d+)\.jpg/, data: window.CAPS, others: 'كابات أخرى:', page: ['products.html', 'المنتجات'], keepSize: true }
             ];
             for (const src of variantSources) {
@@ -305,7 +305,7 @@
         </div>
     </div>
 
-    <script src="script.js?v=4"></script>
+    <script src="script.js?v=5"></script>
     <script>
         // Specific logic for product details page
         document.addEventListener('DOMContentLoaded', () => {
