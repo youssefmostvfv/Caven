@@ -463,6 +463,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showOrderLoader() {
+        // close the iPhone keyboard first, otherwise the overlay can sit off-center
+        if (document.activeElement) document.activeElement.blur();
         const overlay = getOrderOverlay();
         overlay.className = 'is-loading';
         overlay.querySelector('.order-overlay-title').innerText = 'جاري تأكيد طلبك...';
